@@ -6,7 +6,11 @@ import Navbar from './Components/Navbar'
 function App() {
   return (
     <div>
-    <Navbar/>
+      <BrowserRouter>
+      <Navbar/>
+      </BrowserRouter>
+   
+
   </div>
   )
 }
