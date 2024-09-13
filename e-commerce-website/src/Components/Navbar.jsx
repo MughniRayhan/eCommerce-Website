@@ -122,10 +122,13 @@ function Navbar() {
        </div>
 
        { isMenuOpen &&
-          
+          <div className='h-screen w-screen fixed top-0 left-0 bg-black/50 z-50 backdrop-blur-sm  delay-200'>
+               
           <div className=' absolute z-40 bg-white
-          rounded shadow-lg w-[300px] py-4 px-8 top-0 left-0'>
-            <div className='flex flex-row gap-1  ' >
+          rounded shadow-lg w-[350px] h-screen py-4 px-8 top-0 left-0'>
+           <div className='flex justify-between border-b-2 border-primary w-full'>
+            {/* logo */}
+           <div className='flex flex-row gap-1 pb-2 ' >
                 <img src="/images/logo.png" alt="" 
                 className='h-[45px] w-[45px] object-cover'
                 />
@@ -134,6 +137,14 @@ function Navbar() {
                <span className='text-secondary text-xl -mt-3'>Shop</span>
                </div>
             </div>
+            <button
+       className='text-xl '
+       onClick={()=>setIsMenuOpen(!isMenuOpen)}>
+        <IoMdClose /> 
+       </button>
+           </div>
+
+            {/* menu */}
            <div >
            <ul className="flex gap-4 flex-col sm:hidden px-8 py-8 ">
             {Menu.map((data)=>(
@@ -144,10 +155,38 @@ function Navbar() {
             {data.name}
             </Link> 
             ))}
-
            </ul>
            </div>
+
+           {/* login */}
+          <div className='px-4'>
+          {
+            isAuthenticated ?
+            
+                <div className='flex flex-row items-center  gap-2'>
+                <CiLogout />
+                <button
+                className='text-lg cursor-pointer'
+                onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}
+                >Log Out</button>
+                </div>
+
+                :
+
+              <div className='flex flex-row items-center  gap-2'>
+              <FiLogIn />
+              <button
+              className='text-lg cursor-pointer'
+              onClick={() => loginWithRedirect()}
+              >LogIn</button>
+              </div>
+          
+
+        }
           </div>
+          </div>
+          </div>
+          
          
  }
 
@@ -178,6 +217,7 @@ function Navbar() {
               </div>
             }
           </div>
+
            {/* menubar */}
           <div className=''>
           <ul className='flex gap-8 '>
