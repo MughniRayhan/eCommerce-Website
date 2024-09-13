@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { MdLocalShipping } from "react-icons/md";
 import { AiOutlineSearch } from "react-icons/ai";
 import { FaBars } from "react-icons/fa";
+import { IoMdClose } from "react-icons/io";
 import { FiLogIn} from "react-icons/fi";
 import { CiLogout,CiUser } from "react-icons/ci";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -41,10 +42,14 @@ const Menu = [
 
 function Navbar() {
     const { loginWithRedirect , logout, user, isAuthenticated } = useAuth0();
+    const [isMenuOpen,setIsMenuOpen]=useState(false);
+
+
+
   return (
     <div className='w-full'>
         {/* top_header */}
-        <div className='max-w-full flex gap-2 px-2.5 py-2.5 bg-slate-100'>
+        <div className='max-w-full flex gap-2 px-2.5 py-2.5 bg-slate-100 '>
           <div className='mt-1 text-xl ml-5 text-gray-500'>
           < MdLocalShipping/>
           </div>
@@ -54,7 +59,7 @@ function Navbar() {
         </div>
 
         {/* mid-header */}
-        <div className='flex py-4 px-8 justify-between max-w-full '>
+        <div className='flex py-4 px-8 justify-between max-w-full shadow-md relative'>
             {/* logo */}
             <div className='flex flex-row gap-1' >
                 <img src="/images/logo.png" alt="" 
@@ -108,15 +113,49 @@ function Navbar() {
 
         }
        {/* toggle bar */}
-       <div className='sm:hidden block'>
-       <FaBars />
+       <div className='sm:hidden block mt-2'>
+       <button
+       className='text-xl '
+       onClick={()=>setIsMenuOpen(!isMenuOpen)}>
+       {isMenuOpen ? <IoMdClose /> : <FaBars />}
+       </button>
        </div>
-            
+
+       { isMenuOpen &&
+          
+          <div className=' absolute z-40 bg-white
+          rounded shadow-lg w-[300px] py-4 px-8 top-0 left-0'>
+            <div className='flex flex-row gap-1  ' >
+                <img src="/images/logo.png" alt="" 
+                className='h-[45px] w-[45px] object-cover'
+                />
+               <div className='flex flex-col  font-bold '>
+               <span className='text-2xl'>Electronic</span>   
+               <span className='text-secondary text-xl -mt-3'>Shop</span>
+               </div>
+            </div>
+           <div >
+           <ul className="flex gap-4 flex-col sm:hidden px-8 py-8 ">
+            {Menu.map((data)=>(
+            <Link to={data.link}
+             key={data.id}
+             className='font-semibold transition-all hover:text-primary'
+            >
+            {data.name}
+            </Link> 
+            ))}
+
+           </ul>
+           </div>
+          </div>
+         
+ }
+
         </div>
 
         {/* lower navbar */}
         
-        <div className=' fixed hidden sm:flex justify-between w-full bg-gray-900 px-8 py-2  '>
+        <div className=' fixed hidden sm:flex justify-between items-center w-full bg-gray-900 px-8 py-2  '>
           <div>
             {
               // user profile
@@ -131,14 +170,16 @@ function Navbar() {
              </div>
               </div>
               :
-              <div>
-              <CiUser className='bg-white px-1 py-1 text-[20px]'/>
-              <p>Please Login</p> 
+              <div className='flex gap-2 items-center'>
+              <div className='text-[16px] bg-white p-2 rounded-md'>
+              <CiUser/>
+              </div>
+              <p className=' text-gray-300'>Please Login</p> 
               </div>
             }
           </div>
            {/* menubar */}
-          <div className='mt-2'>
+          <div className=''>
           <ul className='flex gap-8 '>
            {Menu.map((data)=>(
              <Link to={data.link}
@@ -152,7 +193,7 @@ function Navbar() {
           </div>
 
           <div className='bg-primary  rounded-md md:ml-3'>
-            <p className='mt-2 lg:px-8 md:px-1 py-1  uppercase lg:text-[14px] md:text-[10px] font-semibold'>flat 10% over all iphone</p>
+            <p className=' lg:px-8 md:px-1 py-2 flex justify-center items-center uppercase lg:text-[14px] md:text-[10px] font-semibold'>flat 10% over all iphone</p>
           </div>
         </div>
         
