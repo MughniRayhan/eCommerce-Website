@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import { MdLocalShipping } from "react-icons/md";
 import { AiOutlineSearch } from "react-icons/ai";
-import { FaBars } from "react-icons/fa";
+import { FaBars,FaHome,FaShoppingBag } from "react-icons/fa";
+import { BsCollectionFill } from "react-icons/bs";
+import { TbCircleLetterIFilled } from "react-icons/tb";
+import { MdContactPage } from "react-icons/md";
 import { IoMdClose } from "react-icons/io";
 import { FiLogIn} from "react-icons/fi";
 import { CiLogout,CiUser } from "react-icons/ci";
@@ -12,26 +15,31 @@ import {Link} from "react-router-dom";
 const Menu = [
   {
     id:1,
+    icon: <FaHome />,
     name:"Home",
     link:"/",
   },
   {
     id:2,
+    icon:<FaShoppingBag />,
     name:"Shop",
     link:"/shop",
   },
   {
     id:3,
+    icon:<BsCollectionFill />,
     name:"Collection",
     link:"/collection",
   },
   {
     id:4,
+    icon:<TbCircleLetterIFilled />,
     name:"About",
     link:"/about",
   },
   {
     id:5,
+    icon:<MdContactPage />,
     name:"Contact",
     link:"/contact",
   },
@@ -112,8 +120,9 @@ function Navbar() {
           </div>
 
         }
+
        {/* toggle bar */}
-       <div className='sm:hidden block mt-2'>
+       <div className='sm:hidden block mt-2 '>
        <button
        className='text-xl '
        onClick={()=>setIsMenuOpen(!isMenuOpen)}>
@@ -122,7 +131,7 @@ function Navbar() {
        </div>
 
        { isMenuOpen &&
-          <div className='h-screen w-screen fixed top-0 left-0 bg-black/50 z-50 backdrop-blur-sm  delay-200'>
+          <div className='h-screen w-screen fixed top-0 left-0 bg-black/40 z-50 backdrop-blur-sm  '>
                
           <div className=' absolute z-40 bg-white
           rounded shadow-lg w-[350px] h-screen py-4 px-8 top-0 left-0'>
@@ -146,20 +155,21 @@ function Navbar() {
 
             {/* menu */}
            <div >
-           <ul className="flex gap-4 flex-col sm:hidden px-8 py-8 ">
+           <ul className="flex gap-4 flex-col sm:hidden  py-8 ">
             {Menu.map((data)=>(
             <Link to={data.link}
              key={data.id}
-             className='font-semibold transition-all hover:text-primary'
+             className=' transition-all  py-2 flex gap-6  hover:bg-primary w-[200px] px-4 rounded-md'
             >
-            {data.name}
+             <span className='text-secondary text-[20px] w-[5px]'> {data.icon}</span>
+           <span> {data.name}</span>
             </Link> 
             ))}
            </ul>
            </div>
 
            {/* login */}
-          <div className='px-4'>
+          <div className='px-4 py-4'>
           {
             isAuthenticated ?
             
@@ -194,7 +204,7 @@ function Navbar() {
 
         {/* lower navbar */}
         
-        <div className=' fixed hidden sm:flex justify-between items-center w-full bg-gray-900 px-8 py-2  '>
+        <div className='   overflow-hidden hidden sm:flex justify-between items-center w-full bg-gray-900 px-8 py-2  '>
           <div>
             {
               // user profile
@@ -222,12 +232,14 @@ function Navbar() {
           <div className=''>
           <ul className='flex gap-8 '>
            {Menu.map((data)=>(
-             <Link to={data.link}
+             
+              <Link to={data.link}
               key={data.id}
               className='text-white font-semibold transition-all hover:text-primary'
               >
                {data.name}
              </Link> 
+             
            ))}
           </ul>
           </div>
