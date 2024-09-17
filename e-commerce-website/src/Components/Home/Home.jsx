@@ -6,6 +6,7 @@ import 'slick-carousel/slick/slick-theme.css'
 import {Link} from "react-router-dom";
 import HomeProducts from '../HomeProducts';
 import Trending from '../Trending';
+import Banner from '../Banner/Banner';
 
 function Home() {
 
@@ -93,6 +94,7 @@ const [trendingProducts, setTrendingProducts] = useState(HomeProducts)
 
           {/* trending products */}
           <Trending allTrending={allTrending} filterCategory={filterCategory} trendingProducts={trendingProducts}/>
+          <Banner/>
        </div>
   
   )
