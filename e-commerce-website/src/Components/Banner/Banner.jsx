@@ -7,7 +7,7 @@ function Banner() {
             {/* left */}
             <div className='sm:w-[24%] w-full'>
              <div className='mt-4'>
-                <img src="/images/banner1.png" alt="" className='h-[370px]'/>
+                <img src="/images/ban1.png" alt="" className='h-[370px]'/>
              </div>
              <div className='mt-4'>
                 <img src="/images/banner2.png" alt="" />
@@ -16,8 +16,8 @@ function Banner() {
             {/* right */}
             <div className=' sm:w-3/4 w-full'>
                 <div className='max-w-full flex flex-col gap-4 sm:flex-row justify-between mt-4'>
-                    <img src="/images/banner3.png" alt="" className='w-[600px] h-[250px]'/>
-                    <img src="/images/banner4.png" alt="" className='w-[450px] h-[250px]'/>
+                    <img src="/images/banner3.png" alt="" className='w-[650px] h-[230px]'/>
+                    <img src="/images/banner4.png" alt="" className='w-[400px] h-[230px]'/>
                 </div>
                 <div className=' mt-2'>
                     <img src="/images/ban.png" alt="" className='w-full object-cover h-[400px]'/>
