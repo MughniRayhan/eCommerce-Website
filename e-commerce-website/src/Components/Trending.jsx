@@ -13,9 +13,9 @@ function Trending({allTrending,filterCategory,trendingProducts}) {
     }
   return (
     <div className='py-4 px-8 max-w-full'>
-    <div className='flex w-full sm:flex-row flex-col '>
+    <div className='flex w-full lg:flex-row flex-col '>
       {/*left  */}
-      <div className='py-3 px-5 sm:w-[70%] w-full'>
+      <div className='py-3 px-5 lg:w-[70%] w-full'>
 
         <div className='flex justify-between flex-col sm:flex-row gap-2 px-5 py-3 bg-gray-100 rounded-md max-w-[95%]  mt-2'>
           <div className=' uppercase font-semibold '>
@@ -29,14 +29,14 @@ function Trending({allTrending,filterCategory,trendingProducts}) {
           </div>
         </div>
          {/* products */}
-        <div className='max-w-full  '>
-          <div className='flex flex-wrap w-full gap-4 '>
+        <div className='max-w-full flex justify-center flex-col ' >
+          <div  className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full gap-4 '>
              {
               trendingProducts.map((data)=>{
                 return(
                    <>
                 <div key={data.id} 
-                className='sm:w-[200px] w-[300px]  h-[295px] px-3   border-4 border-gray-100 mt-5 ml-4
+                className='lg:w-[200px] w-[300px]  h-[295px] px-3   border-4 border-gray-100 mt-5 ml-4
                  bg-white overflow-hidden rounded-md group '
                 >
                   <div className='flex'>
@@ -67,10 +67,15 @@ function Trending({allTrending,filterCategory,trendingProducts}) {
               })
              }
           </div>
+          <button 
+                    className='text-center   px-4 py-2 bg-secondary text-white 
+                    w-[150px] mx-auto mt-5 cursor-pointer hover:bg-primary hover:text-white duration-200'>
+                      Show More
+                    </button>
         </div>
       </div>
       {/* right */}
-      <div className='px-3 py-5 sm:w-[25%] w-full flex flex-col'>
+      <div className='px-3 py-5 lg:w-[25%] w-full flex flex-col'>
        <div className='w-full'>
         {/* testimonial */}
         <div className='w-full  border-4 border-gray-100 rounded'>

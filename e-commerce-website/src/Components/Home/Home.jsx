@@ -93,8 +93,9 @@ const [trendingProducts, setTrendingProducts] = useState(HomeProducts)
 
 
           {/* trending products */}
-          <Trending allTrending={allTrending} filterCategory={filterCategory} trendingProducts={trendingProducts}/>
+          <Trending allTrending={allTrending} filterCategory={filterCategory} trendingProducts={trendingProducts} />
           <Banner/>
+          
        </div>
   
   )
