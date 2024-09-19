@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, {useState } from 'react'
 import { FaArrowRight } from "react-icons/fa6";
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css'
@@ -8,9 +8,12 @@ import HomeProducts from '../HomeProducts';
 import Trending from '../Trending';
 import Banner from '../Banner/Banner';
 
+import ProductType from '../ProductType/ProductType';
+
 function Home() {
 
-const [trendingProducts, setTrendingProducts] = useState(HomeProducts)
+const [trendingProducts, setTrendingProducts] = useState(HomeProducts);
+
 
     var settings = {
         dots: false,
@@ -53,7 +56,8 @@ const [trendingProducts, setTrendingProducts] = useState(HomeProducts)
       const filterProduct = HomeProducts.filter((data)=>{
         return data.type === category
       }) 
-      setTrendingProducts(filterProduct)
+      setTrendingProducts(filterProduct);
+      
     }
     
     const allTrending = () =>{
@@ -94,8 +98,11 @@ const [trendingProducts, setTrendingProducts] = useState(HomeProducts)
 
           {/* trending products */}
           <Trending allTrending={allTrending} filterCategory={filterCategory} trendingProducts={trendingProducts} />
+          {/* Banner Section */}
           <Banner/>
-          
+
+         {/* Product Type */}
+         <ProductType/>
        </div>
   
   )

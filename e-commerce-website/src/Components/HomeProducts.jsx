@@ -63,5 +63,38 @@ const HomeProducts = [
         category: "",
         type: "top",
     },
+    {
+        id:9,
+        name: "product9",
+        price: '26',
+        img: "/images/product1.png",
+        category: "",
+        type: "new",
+    },
+    {
+        id:10,
+        name: "product10",
+        price: '26',
+        img:"/images/watch.png",
+        category: "",
+        type: "featured",
+    },
+    {
+        id:11,
+        name: "product11",
+        price: '26',
+        img:"/images/mobile.png",
+        category: "",
+        type: "featured",
+    },
+    {
+        id:12,
+        name: "product12",
+        price: '26',
+        img:"/images/watch.png",
+        category: "",
+        type: "top",
+    },
+    
 ]
 export default HomeProducts
