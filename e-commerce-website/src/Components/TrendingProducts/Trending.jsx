@@ -1,5 +1,5 @@
 import React from 'react'
-import HomeProducts from './HomeProducts';
+import HomeProducts from '../HomeProducts';
 import { AiFillEye, AiFillHeart } from "react-icons/ai";
 import { BiLogoFacebook, BiLogoTwitter, BiLogoInstagram, BiLogoYoutube } from "react-icons/bi";
 function Trending({allTrending,filterCategory,trendingProducts}) {

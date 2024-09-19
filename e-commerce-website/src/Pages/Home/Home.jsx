@@ -4,11 +4,11 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import {Link} from "react-router-dom";
-import HomeProducts from '../HomeProducts';
-import Trending from '../Trending';
-import Banner from '../Banner/Banner';
+import HomeProducts from '../../Components/HomeProducts';
+import Trending from '../../Components/TrendingProducts/Trending';
+import Banner from '../../Components/Banner/Banner';
 
-import ProductType from '../ProductType/ProductType';
+import ProductType from '../../Components/ProductType/ProductType';
 
 function Home() {
 
@@ -60,6 +60,7 @@ const [trendingProducts, setTrendingProducts] = useState(HomeProducts);
       
     }
     
+    // all products
     const allTrending = () =>{
       setTrendingProducts(HomeProducts);
     }
@@ -93,15 +94,9 @@ const [trendingProducts, setTrendingProducts] = useState(HomeProducts);
                    ))}
                  </Slider>
           </div>
-
-
-
-          {/* trending products */}
+          
           <Trending allTrending={allTrending} filterCategory={filterCategory} trendingProducts={trendingProducts} />
-          {/* Banner Section */}
           <Banner/>
-
-         {/* Product Type */}
          <ProductType/>
        </div>
   
