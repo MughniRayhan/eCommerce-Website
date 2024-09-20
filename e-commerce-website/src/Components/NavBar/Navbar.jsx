@@ -69,14 +69,11 @@ function Navbar() {
         {/* mid-header */}
         <div className='flex py-4 px-8 justify-between max-w-full shadow-md relative'>
             {/* logo */}
-            <div className='flex flex-row gap-1' >
+            <div >
                 <img src="/images/logo.png" alt="" 
-                className='h-[45px] w-[45px] object-cover'
+                className='h-[50px]  object-cover'
                 />
-               <div className='flex flex-col  font-bold '>
-               <span className='text-2xl'>Electronic</span>   
-               <span className='text-secondary text-xl -mt-3'>Shop</span>
-               </div>
+               
             </div>
             {/* searchBox */}
             <div className=' justify-center sm:flex hidden '>
@@ -91,7 +88,7 @@ function Navbar() {
 
             </div>
            
-         
+         {/* login */}
         {
             isAuthenticated ?
              
@@ -107,7 +104,6 @@ function Navbar() {
             </div>
 
             :
-
              
               <div className='sm:block hidden'>
               <div className='flex flex-row items-center justify-center gap-2'>
@@ -135,16 +131,12 @@ function Navbar() {
                
           <div className=' absolute z-40 bg-white
           rounded shadow-lg w-[350px] h-screen py-4 px-8 top-0 left-0'>
-           <div className='flex justify-between border-b-2 border-primary w-full'>
+           <div className='flex justify-between border-b-2 border-gray-200 w-full'>
             {/* logo */}
-           <div className='flex flex-row gap-1 pb-2 ' >
+           <div className=' pb-2 ' >
                 <img src="/images/logo.png" alt="" 
-                className='h-[45px] w-[45px] object-cover'
+                className='h-[50px]  object-cover'
                 />
-               <div className='flex flex-col  font-bold '>
-               <span className='text-2xl'>Electronic</span>   
-               <span className='text-secondary text-xl -mt-3'>Shop</span>
-               </div>
             </div>
             <button
        className='text-xl '
@@ -197,13 +189,10 @@ function Navbar() {
           </div>
           </div>
           
-         
  }
-
         </div>
 
         {/* lower navbar */}
-        
         <div className='   overflow-hidden hidden sm:flex justify-between items-center w-full bg-gray-900 px-8 py-2  '>
           <div>
             {
