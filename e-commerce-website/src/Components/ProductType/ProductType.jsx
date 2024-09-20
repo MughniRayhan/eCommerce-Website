@@ -3,10 +3,10 @@ import HomeProducts from '../HomeProducts';
 import { AiFillEye, AiFillHeart, AiOutlineShoppingCart } from 'react-icons/ai';
 function ProductType() {
   return (
-    <div className='w-full px-10 py-5'>
+    <div className='w-full px-12 py-5'>
     <div className='flex justify-between sm:flex-row flex-col w-full gap-3'>
       {/* new products */}
-      <div className='w-[400px]  border-4 border-gray-100  overflow-hidden '>
+      <div className='w-[400px]  border-4 border-gray-100  overflow-hidden rounded-md '>
         <div className='bg-gray-100 w-full h-[50px] px-4 py-4'>
           <h2 className='text-lg font-semibold uppercase'>New Products</h2>
         </div>
@@ -49,7 +49,7 @@ function ProductType() {
       
       </div>
       {/* featured product */}
-      <div className=' w-[400px]  border-4 border-gray-100  overflow-hidden '>
+      <div className=' w-[400px]  border-4 border-gray-100  overflow-hidden rounded-md'>
         <div className='bg-gray-100 w-full h-[50px] px-4 py-4'>
           <h2 className='text-lg font-semibold uppercase'>Featured Products</h2>
         </div>
@@ -92,7 +92,7 @@ function ProductType() {
       
       </div>
       {/* top products */}
-      <div className=' w-[400px]  border-4 border-gray-100  overflow-hidden '>
+      <div className=' w-[400px]  border-4 border-gray-100  overflow-hidden rounded-md'>
         <div className='bg-gray-100 w-full h-[50px] px-4 py-4'>
           <h2 className='text-lg font-semibold uppercase'>Top Products</h2>
         </div>
