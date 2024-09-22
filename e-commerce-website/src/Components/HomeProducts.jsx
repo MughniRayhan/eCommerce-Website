@@ -4,7 +4,7 @@ const HomeProducts = [
         name: "product1",
         price: '26',
         img: "/images/product1.png",
-        category: "",
+        category: "laptop",
         type: "new",
     },
     {
@@ -12,7 +12,7 @@ const HomeProducts = [
         name: "product2",
         price: '96',
         img:"/images/product2.png",
-        category: "",
+        category: "laptop",
         type: "new",
     },
     {
@@ -20,7 +20,7 @@ const HomeProducts = [
         name: "product3",
         price: '26',
         img:"/images/product3.png",
-        category: "",
+        category: "watch",
         type: "new",
     },
     {
@@ -28,7 +28,7 @@ const HomeProducts = [
         name: "product4",
         price: '26',
         img:"/images/product4.png",
-        category: "",
+        category: "mobile",
         type: "featured",
     },
     {
@@ -36,7 +36,7 @@ const HomeProducts = [
         name: "product5",
         price: '26',
         img:"/images/product5.png",
-        category: "",
+        category: "speaker",
         type: "featured",
     },
     {
@@ -44,7 +44,7 @@ const HomeProducts = [
         name: "product6",
         price: '26',
         img:"/images/product6.png",
-        category: "",
+        category: "headphones",
         type: "top",
     },
     {
@@ -52,7 +52,7 @@ const HomeProducts = [
         name: "product7",
         price: '26',
         img:"/images/product7.png",
-        category: "",
+        category: "headphones",
         type: "top",
     },
     {
@@ -60,7 +60,7 @@ const HomeProducts = [
         name: "product8",
         price: '26',
         img:"/images/product8.png",
-        category: "",
+        category: "tv",
         type: "top",
     },
     {
@@ -68,7 +68,7 @@ const HomeProducts = [
         name: "product9",
         price: '26',
         img: "/images/product9.png",
-        category: "",
+        category: "mobile",
         type: "new",
     },
     {
@@ -76,7 +76,7 @@ const HomeProducts = [
         name: "product10",
         price: '26',
         img:"/images/product10.png",
-        category: "",
+        category: "tv",
         type: "featured",
     },
     {
@@ -84,7 +84,7 @@ const HomeProducts = [
         name: "product11",
         price: '26',
         img:"/images/product11.png",
-        category: "",
+        category: "speaker",
         type: "featured",
     },
     {
@@ -92,7 +92,7 @@ const HomeProducts = [
         name: "product12",
         price: '26',
         img:"/images/product12.png",
-        category: "",
+        category: "watch",
         type: "top",
     },
     

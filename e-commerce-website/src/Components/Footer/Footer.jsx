@@ -73,7 +73,8 @@ const contctInfo = [
 
 
   return (
-    <div className='w-full px-10 py-8 bg-gray-100 '>
+    <div>
+        <div className='w-full px-10 py-8 bg-gray-100 '>
         <div className='flex flex-col lg:flex-row max-w-full'>
             {/* left */}
             <div className='lg:w-1/4  w-full px-5 py-5 lg:border-r-2 border-r-gray-300 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-1'>
@@ -182,6 +183,13 @@ const contctInfo = [
                 </div>
             </div>
         </div>
+       
+    </div>
+    <div className='mt-8 w-full'>
+        <div className='text-center text-gray-200 py-4 bg-stone-900'>
+            &copy;  Electronic Store , 2024
+        </div>
+    </div>
     </div>
   )
 }
