@@ -47,7 +47,7 @@ const productInfo = [
     },
     {
         id: 8,
-        link:'/collection',
+        link:'/shop',
         title:"New Products",
     },
 ]

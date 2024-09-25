@@ -4,7 +4,6 @@ import Navbar from './Components/NavBar/Navbar'
 import Rout from './Router/Rout'
 import Footer from './Components/Footer/Footer'
 import HomeProducts from './Components/HomeProducts'
-import Shop from './Pages/Shop/Shop'
 
 function App() {
   const [shopProducts,setShopProducts] = useState(HomeProducts);

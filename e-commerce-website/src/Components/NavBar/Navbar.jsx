@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import { MdLocalShipping } from "react-icons/md";
 import { AiOutlineSearch } from "react-icons/ai";
-import { FaBars,FaHome,FaShoppingBag } from "react-icons/fa";
-import { BsCollectionFill } from "react-icons/bs";
+import { FaBars,FaHome,FaShoppingBag,FaShoppingCart  } from "react-icons/fa";
 import { TbCircleLetterIFilled } from "react-icons/tb";
 import { MdContactPage } from "react-icons/md";
 import { IoMdClose } from "react-icons/io";
@@ -27,9 +26,9 @@ const Menu = [
   },
   {
     id:3,
-    icon:<BsCollectionFill />,
-    name:"Collection",
-    link:"/collection",
+    icon:<FaShoppingCart  />,
+    name:"Cart",
+    link:"/cart",
   },
   {
     id:4,
@@ -44,8 +43,6 @@ const Menu = [
     link:"/contact",
   },
 ];
-
-
 
 
 function Navbar({search,setSearch,searchProduct}) {

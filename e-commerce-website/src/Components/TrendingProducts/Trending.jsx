@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import HomeProducts from '../HomeProducts';
 import { AiFillEye, AiFillHeart } from "react-icons/ai";
 import { BiLogoFacebook, BiLogoTwitter, BiLogoInstagram, BiLogoYoutube } from "react-icons/bi";
 function Trending({allTrending,filterCategory,trendingProducts}) {
+  const [isSubscribed, setIsSubscribed] = useState(false);
+  
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Prevents the form from refreshing the page
+    setIsSubscribed(true); // Shows the modal
+  };
 
     const allProducts = () =>{
         allTrending();
@@ -11,6 +17,7 @@ function Trending({allTrending,filterCategory,trendingProducts}) {
     const filterProducts = (category) =>{
         filterCategory(category)
     }
+
   return (
     <div className='py-4 px-8 max-w-full'>
     <div className='flex w-full lg:flex-row flex-col '>
@@ -105,15 +112,19 @@ function Trending({allTrending,filterCategory,trendingProducts}) {
             </h3>
           </div>
           {/* form */}
-          <div className=' w-full flex justify-center items-center flex-col'>
+          <form onSubmit={handleSubmit}  className=' w-full flex justify-center items-center flex-col'>
             <p className='text-center text-gray-500'>Join Our Mailing list</p>
-            <input type="email"  placeholder='Email'
+            <input type="email" placeholder="Email" required
             className='mt-2 w-full px-2 py-2 outline-none border rounded border-gray-300 '
             />
-            <button
+           
+            <button type="submit" onClick={()=>setIsSubscribed(!isSubscribed)}
              className='text-center   w-[150px] py-2 bg-primary rounded mt-4 font-semibold
              cursor-pointer hover:bg-secondary hover:text-white duration-200'
-            >Subscribe</button>
+            > {isSubscribed ?
+              "Subscribed" : "Subscribe"
+            }</button>
+            
             {/* social links */}
             <div className='flex gap-4 mt-4 text-secondary '>
             <div className='rounded-full border border-secondary p-4 hover:bg-secondary hover:text-white duration-200'>
@@ -129,7 +140,7 @@ function Trending({allTrending,filterCategory,trendingProducts}) {
             <BiLogoYoutube />
             </div>
             </div>
-          </div>
+          </form>
         </div>
        </div>
       </div>
