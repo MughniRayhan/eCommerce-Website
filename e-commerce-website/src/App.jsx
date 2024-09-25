@@ -1,12 +1,17 @@
 import React, { useState } from 'react'
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, Link } from 'react-router-dom'
 import Navbar from './Components/NavBar/Navbar'
 import Rout from './Router/Rout'
 import Footer from './Components/Footer/Footer'
 import HomeProducts from './Components/HomeProducts'
+import Shop from './Pages/Shop/Shop'
 
 function App() {
   const [shopProducts,setShopProducts] = useState(HomeProducts);
+  const [search,setSearch] = useState('');
+
+
+
   // filter categories
   const filterCategory = (category) =>{
     const filteredProduct = HomeProducts.filter((product)=>{
@@ -20,11 +25,23 @@ function App() {
     setShopProducts(HomeProducts);
   }
 
+
+// search
+ const searchProduct = () =>{
+  const searchFilter = HomeProducts.filter((x)=>{
+    return x.category === search;
+  })
+  setShopProducts(searchFilter)
+ 
+ 
+ }
+
   return (
     <div>
       <BrowserRouter>
-      <Navbar/>
-      <Rout shopProducts={shopProducts} filterCategory={filterCategory} allCategory={allCategory}/>
+      <Navbar search={search} setSearch={setSearch} searchProduct={searchProduct}/>
+      <Rout shopProducts={shopProducts} filterCategory={filterCategory} allCategory={allCategory}
+      />
       <Footer/>
       </BrowserRouter>
    

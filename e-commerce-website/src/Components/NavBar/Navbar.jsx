@@ -48,7 +48,7 @@ const Menu = [
 
 
 
-function Navbar() {
+function Navbar({search,setSearch,searchProduct}) {
     const { loginWithRedirect , logout, user, isAuthenticated } = useAuth0();
     const [isMenuOpen,setIsMenuOpen]=useState(false);
 
@@ -77,15 +77,22 @@ function Navbar() {
             </div>
             {/* searchBox */}
             <div className=' justify-center sm:flex hidden '>
-                <input type="text"  placeholder='Search'
+                <input 
+                type="text"
+                placeholder='Search' 
+                value={search} 
+                onChange={(e)=>setSearch(e.target.value)}
+                
                 className='px-2 outline-none rounded-l-md bg-slate-100 
                 w-[300px] h-[40px] '
                 />
-                <button className=' outline-none rounded-r-md bg-secondary w-[55px] h-[40px] text-white 
+                <Link to='/shop'><button
+                onClick={searchProduct}
+                className=' outline-none rounded-r-md bg-secondary w-[55px] h-[40px] text-white 
                  cursor-pointer grid place-items-center hover:bg-primary hover:text-secondary delay-100 '>
                     < AiOutlineSearch />
                 </button>
-
+</Link>
             </div>
            
          {/* login */}
@@ -151,7 +158,7 @@ function Navbar() {
             {Menu.map((data)=>(
             <Link to={data.link}
              key={data.id}
-             className=' transition-all  py-2 flex gap-6  hover:bg-primary w-[200px] px-4 rounded-md'
+             className=' transition-all  py-2 flex gap-6  hover:bg-primary/70 w-[200px] px-4 rounded-md'
             >
              <span className='text-secondary text-[20px] w-[5px]'> {data.icon}</span>
            <span> {data.name}</span>
