@@ -8,6 +8,7 @@ import HomeProducts from './Components/HomeProducts'
 function App() {
   const [shopProducts,setShopProducts] = useState(HomeProducts);
   const [search,setSearch] = useState('');
+  const [cart,setCart] = useState([]);
 
 
 
@@ -30,17 +31,44 @@ function App() {
   const searchFilter = HomeProducts.filter((x)=>{
     return x.category === search;
   })
-  setShopProducts(searchFilter)
- 
- 
+  setShopProducts(searchFilter);
  }
+
+//  add to cart
+
+const addToCart = (product) =>{
+  const existProduct = cart.find((x)=>{
+    return x.id === product.id
+  })
+  if(existProduct){
+    alert("this product is already added to the cart")
+  }
+  else{
+    setCart([...cart,{...product, qty:1}])
+    alert("added to the cart")
+  }
+ 
+
+}
 
   return (
     <div>
       <BrowserRouter>
-      <Navbar search={search} setSearch={setSearch} searchProduct={searchProduct}/>
-      <Rout shopProducts={shopProducts} filterCategory={filterCategory} allCategory={allCategory}
+      <Navbar 
+      search={search} 
+      setSearch={setSearch} 
+      searchProduct={searchProduct}
       />
+
+      <Rout 
+      shopProducts={shopProducts}
+      filterCategory={filterCategory}
+      allCategory={allCategory}
+      addToCart={addToCart}
+      cart={cart}
+      setCart={setCart}
+      />
+
       <Footer/>
       </BrowserRouter>
    

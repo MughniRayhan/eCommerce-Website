@@ -1,7 +1,7 @@
 import React from 'react'
 import { AiFillEye, AiFillHeart } from 'react-icons/ai'
 
-function Shop({shopProducts,filterCategory,allCategory}) {
+function Shop({shopProducts,filterCategory,allCategory,addToCart}) {
 
     
   return (
@@ -73,7 +73,9 @@ function Shop({shopProducts,filterCategory,allCategory}) {
                     <h1 className='text-sm   uppercase tracking-wider'>{data.name}</h1>
                     <p className='text-secondary py-1 tracking-wide'>${data.price}</p>
                     <button 
-                    className='text-center ml-3  px-4 py-2 bg-primary rounded-md cursor-pointer hover:bg-secondary hover:text-white duration-200'>
+                    onClick={()=>addToCart(data)}
+                    className='text-center ml-3  px-4 py-2 bg-primary rounded-md cursor-pointer
+                     hover:bg-secondary hover:text-white duration-200'>
                       Add to cart
                     </button>
                   </div>

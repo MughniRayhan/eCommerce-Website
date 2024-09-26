@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import HomeProducts from '../HomeProducts';
 import { AiFillEye, AiFillHeart } from "react-icons/ai";
 import { BiLogoFacebook, BiLogoTwitter, BiLogoInstagram, BiLogoYoutube } from "react-icons/bi";
-function Trending({allTrending,filterCategory,trendingProducts}) {
+function Trending({allTrending,filterCategory,trendingProducts,addToCart}) {
   const [isSubscribed, setIsSubscribed] = useState(false);
   
   const handleSubmit = (e) => {
@@ -64,6 +64,7 @@ function Trending({allTrending,filterCategory,trendingProducts}) {
                     <h1 className='text-sm   uppercase tracking-wider'>{data.name}</h1>
                     <p className='text-secondary py-1 tracking-wide'>${data.price}</p>
                     <button 
+                    onClick={()=>addToCart(data)}
                     className='text-center ml-3  px-4 py-2 bg-primary rounded-md cursor-pointer hover:bg-secondary hover:text-white duration-200'>
                       Add to cart
                     </button>

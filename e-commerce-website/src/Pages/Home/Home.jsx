@@ -10,7 +10,7 @@ import Banner from '../../Components/Banner/Banner';
 
 import ProductType from '../../Components/ProductType/ProductType';
 
-function Home() {
+function Home({addToCart}) {
 
 const [trendingProducts, setTrendingProducts] = useState(HomeProducts);
 
@@ -95,7 +95,7 @@ const [trendingProducts, setTrendingProducts] = useState(HomeProducts);
                  </Slider>
           </div>
           
-          <Trending allTrending={allTrending} filterCategory={filterCategory} trendingProducts={trendingProducts} />
+          <Trending allTrending={allTrending} filterCategory={filterCategory} trendingProducts={trendingProducts} addToCart={addToCart}/>
           <Banner/>
          <ProductType/>
        </div>
