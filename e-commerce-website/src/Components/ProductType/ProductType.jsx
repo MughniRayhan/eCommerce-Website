@@ -4,7 +4,7 @@ import { AiFillEye, AiFillHeart, AiOutlineShoppingCart } from 'react-icons/ai';
 function ProductType() {
   return (
     <div className='w-full px-12 py-5'>
-    <div className='flex justify-between sm:flex-row flex-col w-full gap-3'>
+    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full gap-3'>
       {/* new products */}
       <div className='w-[400px]  border-4 border-gray-100  overflow-hidden rounded-md '>
         <div className='bg-gray-100 w-full h-[50px] px-4 py-4'>

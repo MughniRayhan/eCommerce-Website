@@ -52,7 +52,7 @@ function Navbar({search,setSearch,searchProduct}) {
 
 
   return (
-    <div className='w-full'>
+    <div className='w-full sticky top-0  bg-white z-50'>
         {/* top_header */}
         <div className='max-w-full flex gap-2 px-2.5 py-2.5 bg-slate-100 '>
           <div className='mt-1 text-xl ml-5 text-gray-500'>
@@ -64,7 +64,7 @@ function Navbar({search,setSearch,searchProduct}) {
         </div>
 
         {/* mid-header */}
-        <div className='flex py-4 px-8 justify-between max-w-full shadow-md relative'>
+        <div className='flex py-4 px-8 justify-between max-w-full shadow-md  bg-white'>
             {/* logo */}
             <div >
                 <img src="/images/logo.png" alt="" 
@@ -122,7 +122,7 @@ function Navbar({search,setSearch,searchProduct}) {
         }
 
        {/* toggle bar */}
-       <div className='sm:hidden block mt-2 '>
+       <div className='sm:hidden sticky bg-white z-40 mt-2 '>
        <button
        className='text-xl '
        onClick={()=>setIsMenuOpen(!isMenuOpen)}>

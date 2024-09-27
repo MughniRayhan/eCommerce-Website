@@ -15,7 +15,7 @@ function Banner() {
             </div>
             {/* right */}
             <div className=' lg:w-3/4 w-full'>
-                <div className='max-w-full flex flex-col gap-4 lg:flex-row justify-between mt-4'>
+                <div className='max-w-full flex flex-col gap-4 md:flex-row justify-between mt-4'>
                 <Link to="/shop"><img src="/images/banner3.png" alt="" className='lg:w-[650px] w-full h-[230px]'/></Link>
                 <Link to="/shop"> <img src="/images/banner4.png" alt="" className='lg:w-[400px] w-full h-[230px]'/></Link>
                 </div>
