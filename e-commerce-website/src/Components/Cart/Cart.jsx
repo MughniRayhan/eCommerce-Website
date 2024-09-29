@@ -20,6 +20,19 @@ const Decrement = (product) =>{
     return data.id === product.id ? (data.qty!=1 ? {...exist, qty: exist.qty - 1 } : {...exist, qty:  1 }): data
   }))
 }
+
+// removeProduct
+const removeProduct = (product) =>{
+  const exist = cart.find((x)=>{
+    return x.id === product.id
+  })
+  if(exist.qty > 0){
+    setCart(cart.filter((element)=>{
+     return element.id !== product.id
+    }))
+  }
+}
+
   return (
     <div>
       <div className='w-full px-8 py-5'>
@@ -27,9 +40,10 @@ const Decrement = (product) =>{
       {
         cart.length === 0 && 
         <div className='w-full text-center'>
-          <h1 className='text-4xl uppercase font-semibold text-gray-600'>Your shopping cart is empty</h1>
+          <h1 className='sm:text-4xl text-xl uppercase font-semibold text-gray-500'>Your shopping cart is empty</h1>
           <Link to='/shop'>
-          <button className='px-8 py-2 mt-4 bg-primary outline-none text-secondary font-semibold cursor-pointer'>
+          <button className='px-8 py-2 mt-4 bg-primary outline-none text-secondary
+          hover:bg-secondary hover:text-white font-semibold cursor-pointer'>
             Shop now
           </button>
           </Link>
@@ -40,34 +54,48 @@ const Decrement = (product) =>{
           cart.map((data)=>{
             return (
               <div key={data.id}>
-                <div className='flex w-full border-2 border-gray-200 h-[250px] mt-4 px-8'>
+                <div className='flex flex-col lg:flex-row w-full  border-2 border-gray-200 lg:h-[250px] h-[400px] mt-4 px-8'>
+                <div className='w-full flex justify-end lg:hidden'>
+                <Link 
+                className=' font-semibold text-xl cursor-pointer text-white bg-secondary py-
+                h-[40px] w-[40px] mt-2   grid place-items-center ml-4'
+                onClick={()=>removeProduct(data)}
+                >
+                      <AiOutlineClose />
+                    </Link>
+                </div>
+                  
                   <div>
                     <img src={data.img} alt=""
-                    className='w-[270px] h-full'
+                    className='lg:w-[270px] lg:h-full w-[150px]  mx-auto'
                     />
                   </div>
                   {/* details */}
-                  <div className='flex w-full  ml-32 items-center gap-20'>
+                  <div className='flex flex-col lg:flex-row w-full  lg:ml-32 items-center lg:gap-20 gap-5 -mt-5 lg:mt-0'>
                     <div >
                     <h4 className='uppercase text-sm text-gray-500 font-semibold'>{data.category}</h4>
-                    <h3 className='mt-3 text-2xl uppercase font-semibold'>{data.name}</h3>
+                    <h3 className='mt-3 md:text-2xl uppercase font-semibold'>{data.name}</h3>
                     <p className='mt-1 uppercase text-gray-600'>Price: ${data.price}</p>
                     <p className='mt-1 uppercase text-gray-600'>Total: ${data.price * data.qty}</p>
                     </div>
                     
-                    <div className='  flex'>
+                    <div className='  flex '>
                       <button 
                       className='px-5 outline-none bg-primary font-semibold h-[40px] text-[16px] cursor-pointer'
                       onClick={()=>Increament(data)}>+</button>
                       <input type="number" value={data.qty}
-                      className='w-[100px] border-2 border-primary h-[40px] px-4'
+                      className='lg:w-[100px] w-[200px] border-2 text-secondary border-primary h-[40px] px-4'
                       />
                       <button 
                       className='px-5 outline-none bg-primary font-semibold h-[40px] text-[16px] cursor-pointer'
                       onClick={()=>Decrement(data)}
                       >-</button>
                     </div>
-                    <Link className=' h-[40px]  bg-secondary text-white p-4 font-semibold text-sm cursor-pointer'>
+                    <Link 
+                    className=' h-[40px] lg:block hidden bg-secondary
+                    text-white p-4 font-semibold text-sm cursor-pointer'
+                    onClick={()=>removeProduct(data)}
+                    >
                       <AiOutlineClose />
                     </Link>
                   </div>
