@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { MdLocalShipping } from "react-icons/md";
 import { AiOutlineSearch } from "react-icons/ai";
 import { FaBars,FaHome,FaShoppingBag,FaShoppingCart  } from "react-icons/fa";
+import { IoCartOutline } from "react-icons/io5";
 import { TbCircleLetterIFilled } from "react-icons/tb";
 import { MdContactPage } from "react-icons/md";
 import { IoMdClose } from "react-icons/io";
@@ -48,6 +49,7 @@ const Menu = [
 function Navbar({search,setSearch,searchProduct}) {
     const { loginWithRedirect , logout, user, isAuthenticated } = useAuth0();
     const [isMenuOpen,setIsMenuOpen]=useState(false);
+    const [isSearch, setIsSearch] = useState(false);
 
 
 
@@ -64,9 +66,9 @@ function Navbar({search,setSearch,searchProduct}) {
         </div>
 
         {/* mid-header */}
-        <div className='flex py-4 px-8 justify-between max-w-full shadow-md  bg-white'>
+        <div className='sm:flex hidden py-4 px-8 justify-between max-w-full shadow-md  bg-white '>
             {/* logo */}
-            <div >
+            <div className='w-[25%]'>
                 <img src="/images/logo.png" alt="" 
                 className='h-[50px]  object-cover'
                 />
@@ -93,7 +95,8 @@ function Navbar({search,setSearch,searchProduct}) {
             </div>
            
          {/* login */}
-        {
+       <div>
+       {
             isAuthenticated ?
              
            
@@ -121,13 +124,69 @@ function Navbar({search,setSearch,searchProduct}) {
 
         }
 
-       {/* toggle bar */}
-       <div className='sm:hidden sticky bg-white z-40 mt-2 '>
-       <button
-       className='text-xl '
+       </div>
+        </div>
+
+        {/* mobile navbar */}
+       <div className='sm:hidden sticky bg-white z-50 mt-2 flex py-4 px-8 justify-between max-w-full shadow-md items-center  '>
+
+      <div className='flex gap-3 justify-center items-center'>
+      <button
+       className='text-xl cursor-pointer'
        onClick={()=>setIsMenuOpen(!isMenuOpen)}>
        {isMenuOpen ? <IoMdClose /> : <FaBars />}
        </button>
+      
+      {/* search */}
+       <div>
+        <AiOutlineSearch className='text-xl cursor-pointer'
+        onClick={()=>setIsSearch(!isSearch)}
+        />
+        {
+          isSearch && 
+          <div className='mt-5 p-3  bg-white border border-gray-200 rounded-md fixed z-50 right-40 shadow-lg'>
+            <div className='w-full flex justify-end '>
+            <IoMdClose 
+            onClick={()=>setIsSearch(false)} 
+            className='text-gray-500 cursor-pointer '/>
+            </div>
+            {/* searchBox */}
+            <div className=' justify-center flex mt-1'>
+                <input 
+                type="text"
+                placeholder='Search' 
+                value={search} 
+                onChange={(e)=>setSearch(e.target.value)}
+                
+                className='px-2 outline-none rounded-l-md  border border-gray-300
+                w-[200px] h-[40px] bg-slate-100 '
+                />
+                <Link to='/shop'><button
+                onClick={searchProduct}
+                className=' outline-none rounded-r-md bg-secondary w-[50px] h-[40px] text-white 
+                 cursor-pointer grid place-items-center hover:bg-primary hover:text-secondary delay-100 '>
+                    < AiOutlineSearch />
+                </button>
+</Link>
+            </div>
+          </div>
+        }
+       </div>
+      </div>
+        {/* logo */}
+       <div className=' '>
+                <img src="/images/logo.png" alt="" 
+                className='h-[50px]  object-cover'
+                />
+               
+            </div>
+      {/* cart */}
+      <div>
+      <Link to='/cart'>
+      <IoCartOutline className='text-2xl cursor-pointer'/>
+      </Link>
+      </div>
+      
        </div>
 
        { isMenuOpen &&
@@ -194,7 +253,6 @@ function Navbar({search,setSearch,searchProduct}) {
           </div>
           
  }
-        </div>
 
         {/* lower navbar */}
         <div className='   overflow-hidden hidden sm:flex justify-between items-center w-full bg-gray-900 px-8 py-2  '>
