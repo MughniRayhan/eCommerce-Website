@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import HomeProducts from '../HomeProducts';
+import { Link } from 'react-router-dom';
 import { AiFillEye, AiFillHeart } from "react-icons/ai";
 import { BiLogoFacebook, BiLogoTwitter, BiLogoInstagram, BiLogoYoutube } from "react-icons/bi";
 function Trending({allTrending,filterCategory,trendingProducts,addToCart}) {
@@ -42,15 +43,16 @@ function Trending({allTrending,filterCategory,trendingProducts,addToCart}) {
               trendingProducts.map((data)=>{
                 return(
                    <>
-                <div key={data.id} 
+        
+        <div key={data.id} 
                 className='lg:w-[200px] w-[300px]  h-[295px] px-3   border-4 border-gray-100 mt-5 ml-4
                  bg-white overflow-hidden rounded-md group '
                 >
-                  <div className='flex'>
-                    <img src={data.img} alt=""
+                  <div className='flex '>
+                  <Link to={`${data.id}`}><img src={data.img} alt=""
                     className='w-[190px] h-[190px]  object-cover ml-10 sm:ml-0'
-                    />
-                    <div className='flex flex-col sm:ml-10 ml-28 sm:group-hover:-ml-8 group-hover:ml-0 duration-200 '>
+                    /></Link>
+                    <div className='flex flex-col sm:-mr-52 ml-28 sm:group-hover:-ml-14 group-hover:ml-0 duration-200 '>
                     <div className='mt-3 shadow-md shadow-gray-500  p-3 bg-white z-40  text-secondary hover:bg-secondary hover:text-white duration-200'>
                     <AiFillEye />
                     </div>
@@ -70,6 +72,7 @@ function Trending({allTrending,filterCategory,trendingProducts,addToCart}) {
                     </button>
                   </div>
                 </div>
+       
                 </>
                 )
               })

@@ -1,5 +1,6 @@
 import React from 'react'
 import { AiFillEye, AiFillHeart } from 'react-icons/ai'
+import { Link } from 'react-router-dom'
 
 function Shop({shopProducts,filterCategory,allCategory,addToCart}) {
 
@@ -51,16 +52,20 @@ function Shop({shopProducts,filterCategory,allCategory,addToCart}) {
                     <div className='w-full flex flex-wrap '>
                         {
                             shopProducts.map((data)=>{
+                                
                                 return(
                                 <div key={data.id}>
-                                     <div className='lg:w-[200px] w-[300px]  h-[295px] px-3   border-4 border-gray-100 mt-5 ml-4
+                                   
+                                   <div className='lg:w-[200px] w-[300px]  h-[295px] px-3   border-4 border-gray-100 mt-5 ml-4
                                       bg-white overflow-hidden rounded-md group '
                                       >
-                            <div className='flex'>
+                            <div className='flex relative justify-center  '>
+                            <Link to={`${data.id}`} >
                                       <img src={data.img} alt=""
-                                    className='w-[190px] h-[190px]  object-cover ml-10 sm:ml-0'
+                                    className='w-[160px] h-[160px]  object-cover  '
                                         />
-                              <div className='flex flex-col lg:ml-10 ml-28 lg:group-hover:-ml-8 group-hover:ml-0 duration-200 '>
+                                        </Link>
+                              <div className='flex absolute flex-col  -right-20  group-hover:right-4 duration-200 '>
                                  <div className='mt-3 shadow-md shadow-gray-500  p-3 bg-white z-40  text-secondary hover:bg-secondary hover:text-white duration-200'>
                                    <AiFillEye />
                                  </div>
@@ -69,7 +74,7 @@ function Shop({shopProducts,filterCategory,allCategory,addToCart}) {
                                  </div>
                               </div>     
                            </div>
-                           <div className='ml-4 py-4 -mt-8  text-center'>
+                           <div className=' py-4 -mt-3 text-center'>
                     <h1 className='text-sm   uppercase tracking-wider'>{data.name}</h1>
                     <p className='text-secondary py-1 tracking-wide'>${data.price}</p>
                     <button 
@@ -80,6 +85,7 @@ function Shop({shopProducts,filterCategory,allCategory,addToCart}) {
                     </button>
                   </div>
                                 </div>
+                                   
                                 </div>
                                 )
                             })

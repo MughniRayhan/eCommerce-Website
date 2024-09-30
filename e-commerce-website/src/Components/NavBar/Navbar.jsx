@@ -68,21 +68,21 @@ function Navbar({search,setSearch,searchProduct}) {
         {/* mid-header */}
         <div className='sm:flex hidden py-4 px-8 justify-between max-w-full shadow-md  bg-white '>
             {/* logo */}
-            <div className='w-[25%]'>
+            <div >
                 <img src="/images/logo.png" alt="" 
                 className='h-[50px]  object-cover'
                 />
                
             </div>
             {/* searchBox */}
-            <div className=' justify-center sm:flex hidden '>
+            <div className=' justify-center sm:flex hidden  '>
                 <input 
                 type="text"
                 placeholder='Search' 
                 value={search} 
                 onChange={(e)=>setSearch(e.target.value)}
                 
-                className='px-2 outline-none rounded-l-md bg-slate-100 
+                className='px-2 outline-none rounded-l-md bg-slate-100 border border-slate-200
                 w-[300px] h-[40px] '
                 />
                 <Link to='/shop'><button
@@ -95,7 +95,7 @@ function Navbar({search,setSearch,searchProduct}) {
             </div>
            
          {/* login */}
-       <div>
+       <div >
        {
             isAuthenticated ?
              
@@ -174,7 +174,7 @@ function Navbar({search,setSearch,searchProduct}) {
        </div>
       </div>
         {/* logo */}
-       <div className=' '>
+       <div className='  '>
                 <img src="/images/logo.png" alt="" 
                 className='h-[50px]  object-cover'
                 />

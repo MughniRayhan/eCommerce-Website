@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import Home from '../Pages/Home/Home'
 import Shop from '../Pages/Shop/Shop'
 import Cart from '../Components/Cart/Cart'
+import SingleProduct from '../Components/SingleProduct/SingleProduct'
 function Rout({shopProducts,filterCategory,allCategory,addToCart,cart,setCart}) {
   return (
     <div>
@@ -18,6 +19,8 @@ function Rout({shopProducts,filterCategory,allCategory,addToCart,cart,setCart}) 
               />
             }
             />
+            <Route path='/shop/:id' element={<SingleProduct addToCart={addToCart}/>}/>
+            <Route path='/:id' element={<SingleProduct addToCart={addToCart}/>}/>
         </Routes>
     </div>
   )
