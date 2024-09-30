@@ -95,7 +95,12 @@ const [trendingProducts, setTrendingProducts] = useState(HomeProducts);
                  </Slider>
           </div>
           
-          <Trending allTrending={allTrending} filterCategory={filterCategory} trendingProducts={trendingProducts} addToCart={addToCart}/>
+          <Trending 
+          allTrending={allTrending} 
+          filterCategory={filterCategory} 
+          trendingProducts={trendingProducts} 
+          addToCart={addToCart} 
+          setTrendingProducts={setTrendingProducts}/>
           <Banner/>
          <ProductType/>
        </div>

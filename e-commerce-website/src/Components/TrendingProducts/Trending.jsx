@@ -3,7 +3,7 @@ import HomeProducts from '../HomeProducts';
 import { Link } from 'react-router-dom';
 import { AiFillEye, AiFillHeart } from "react-icons/ai";
 import { BiLogoFacebook, BiLogoTwitter, BiLogoInstagram, BiLogoYoutube } from "react-icons/bi";
-function Trending({allTrending,filterCategory,trendingProducts,addToCart}) {
+function Trending({allTrending,filterCategory,trendingProducts,setTrendingProducts,addToCart}) {
   const [isSubscribed, setIsSubscribed] = useState(false);
   
   const handleSubmit = (e) => {
@@ -18,7 +18,8 @@ function Trending({allTrending,filterCategory,trendingProducts,addToCart}) {
     const filterProducts = (category) =>{
         filterCategory(category)
     }
-
+    
+    const [isShowMore, setIsShowMore] = useState(false)
   return (
     <div className='py-4 px-8 max-w-full'>
     <div className='flex w-full lg:flex-row flex-col '>
@@ -39,8 +40,10 @@ function Trending({allTrending,filterCategory,trendingProducts,addToCart}) {
          {/* products */}
         <div className='max-w-full flex justify-center flex-col ' >
           <div  className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full gap-4 '>
+
              {
-              trendingProducts.map((data)=>{
+              
+              trendingProducts.slice(0,8).map((data)=>{
                 return(
                    <>
         
@@ -48,11 +51,12 @@ function Trending({allTrending,filterCategory,trendingProducts,addToCart}) {
                 className='lg:w-[200px] w-[300px]  h-[295px] px-3   border-4 border-gray-100 mt-5 ml-4
                  bg-white overflow-hidden rounded-md group '
                 >
-                  <div className='flex '>
-                  <Link to={`${data.id}`}><img src={data.img} alt=""
-                    className='w-[190px] h-[190px]  object-cover ml-10 sm:ml-0'
+                  <div className='flex relative  '>
+                  <Link to={`${data.id}`}>
+                  <img src={data.img} alt=""
+                    className='w-[150px] h-[150px]  object-cover ml-10 sm:ml-0'
                     /></Link>
-                    <div className='flex flex-col sm:-mr-52 ml-28 sm:group-hover:-ml-14 group-hover:ml-0 duration-200 '>
+                    <div className='flex absolute flex-col  -right-20  group-hover:right-4 duration-200 '>
                     <div className='mt-3 shadow-md shadow-gray-500  p-3 bg-white z-40  text-secondary hover:bg-secondary hover:text-white duration-200'>
                     <AiFillEye />
                     </div>
@@ -62,7 +66,7 @@ function Trending({allTrending,filterCategory,trendingProducts,addToCart}) {
                     </div>     
                   </div>
                   {/* info */}
-                  <div className='ml-4 py-4 -mt-8'>
+                  <div className='ml-4 py-4 '>
                     <h1 className='text-sm   uppercase tracking-wider'>{data.name}</h1>
                     <p className='text-secondary py-1 tracking-wide'>${data.price}</p>
                     <button 
@@ -77,14 +81,80 @@ function Trending({allTrending,filterCategory,trendingProducts,addToCart}) {
                 )
               })
              }
+            
           </div>
-          <button 
-                    className='text-center   px-4 py-2 bg-secondary text-white 
-                    w-[150px] mx-auto mt-5 cursor-pointer hover:bg-primary hover:text-white duration-200'>
-                      Show More
-                    </button>
+
+
+
+
+
+
+
+
+
+
+          <div className='flex justify-center'
+          onClick={()=>setIsShowMore(!isShowMore)}
+          >
+            {
+              isShowMore ? 
+              <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full gap-4 '>
+              {
+                trendingProducts.slice(8,12).map((data)=>{
+                  return (
+                    <div key={data.id} 
+                    className='lg:w-[200px] w-[300px]  h-[295px] px-3   border-4 border-gray-100 mt-5 ml-4
+                     bg-white overflow-hidden rounded-md group '
+                    >
+                      <div className='flex relative  '>
+                      <Link to={`${data.id}`}>
+                      <img src={data.img} alt=""
+                        className='w-[150px] h-[150px]  object-cover ml-10 sm:ml-0'
+                        /></Link>
+                        <div className='flex absolute flex-col  -right-20  group-hover:right-4 duration-200 '>
+                        <div className='mt-3 shadow-md shadow-gray-500  p-3 bg-white z-40  text-secondary hover:bg-secondary hover:text-white duration-200'>
+                        <AiFillEye />
+                        </div>
+                       <div className='mt-3 shadow-md  shadow-gray-500 p-3 bg-white z-40  text-secondary hover:bg-secondary hover:text-white duration-200'>
+                       <AiFillHeart />
+                       </div>
+                        </div>     
+                      </div>
+                      {/* info */}
+                      <div className='ml-4 py-4 '>
+                        <h1 className='text-sm   uppercase tracking-wider'>{data.name}</h1>
+                        <p className='text-secondary py-1 tracking-wide'>${data.price}</p>
+                        <button 
+                        onClick={()=>addToCart(data)}
+                        className='text-center ml-3  px-4 py-2 bg-primary rounded-md cursor-pointer hover:bg-secondary hover:text-white duration-200'>
+                          Add to cart
+                        </button>
+                      </div>
+                    </div>
+                  )
+                })
+              }
+              </div>
+              :
+              <button  className='text-center   px-4 py-2 bg-secondary text-white 
+              w-[150px] mx-auto mt-5 cursor-pointer hover:bg-primary hover:text-white duration-200'>Show More</button>
+            }
+           </div>
         </div>
       </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
       {/* right */}
       <div className='px-3 py-5 lg:w-[25%] w-full flex flex-col'>
        <div className='w-full'>
@@ -151,6 +221,7 @@ function Trending({allTrending,filterCategory,trendingProducts,addToCart}) {
     </div>
    </div>
   )
+
 }
 
 export default Trending
