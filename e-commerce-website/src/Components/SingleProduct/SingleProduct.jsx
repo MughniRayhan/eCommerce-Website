@@ -18,13 +18,13 @@ useEffect(()=>{
 },[id])
   
   return (
-    <div  className='w-full flex  gap-20 py-14   justify-center bg-white sticky z-0 pb-20'>
-      <div className='p-4 border-8 border-gray-200'>
+    <div  className='w-full flex flex-col sm:flex-row  gap-20 py-14  justify-center bg-white sticky z-0 pb-20'>
+      <div className='p-4 border-8 border-gray-200 w-[300px] mx-auto sm:mx-0'>
         <img src={products.img} alt=""
         className='w-[270px] h-[270px]'
         />
       </div>
-      <div className='w-[700px] mt-4'>
+      <div className='lg:w-[700px] w-[400px] mt-4 mx-auto sm:mx-0'>
         <h3 className='uppercase text-sm text-gray-500 font-semibold'>#{products.category}</h3>
         <h2 className='mt-3 md:text-2xl uppercase font-semibold'>{products.name}</h2>
         <p className='text-justify mt-3 text-gray-500 text-sm font-semibold'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo magni provident cum nam. Dolor vel qui magni provident sed impedit tempora culpa iste corrupti quibusdam, quasi adipisci exercitationem sapiente itaque!</p>
