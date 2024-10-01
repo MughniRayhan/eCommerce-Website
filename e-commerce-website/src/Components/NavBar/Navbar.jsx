@@ -66,7 +66,7 @@ function Navbar({search,setSearch,searchProduct}) {
         </div>
 
         {/* mid-header */}
-        <div className='sm:flex hidden py-4 px-8 justify-between max-w-full shadow-md  bg-white '>
+        <div className='md:flex hidden py-4 px-8 justify-between max-w-full shadow-md  bg-white '>
             {/* logo */}
             <div >
                 <img src="/images/logo.png" alt="" 
@@ -128,7 +128,7 @@ function Navbar({search,setSearch,searchProduct}) {
         </div>
 
         {/* mobile navbar */}
-       <div className='sm:hidden sticky bg-white z-50 mt-2 flex py-4 px-8 justify-between max-w-full shadow-md items-center  '>
+       <div className='md:hidden sticky bg-white z-50 mt-2 flex py-4 px-8 justify-between max-w-full shadow-md items-center  '>
 
       <div className='flex gap-3 justify-center items-center'>
       <button
@@ -210,7 +210,7 @@ function Navbar({search,setSearch,searchProduct}) {
 
             {/* menu */}
            <div >
-           <ul className="flex gap-4 flex-col sm:hidden  py-8 ">
+           <ul className="flex gap-4 flex-col md:hidden  py-8 ">
             {Menu.map((data)=>(
             <Link to={data.link}
              key={data.id}
@@ -255,7 +255,7 @@ function Navbar({search,setSearch,searchProduct}) {
  }
 
         {/* lower navbar */}
-        <div className='   overflow-hidden hidden sm:flex justify-between items-center w-full bg-gray-900 px-8 py-2  '>
+        <div className='   overflow-hidden hidden md:flex justify-between items-center w-full bg-gray-900 px-8 py-2  '>
           <div>
             {
               // user profile

@@ -1,7 +1,10 @@
 import React from 'react'
 import HomeProducts from '../HomeProducts';
 import { AiFillEye, AiFillHeart, AiOutlineShoppingCart } from 'react-icons/ai';
+import { userContext } from '../Context/useUserContext';
 function ProductType() {
+  const {addToCart} = userContext()
+ 
   return (
     <div className='w-full px-12 py-5'>
     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full gap-3'>
@@ -34,7 +37,7 @@ function ProductType() {
                     <button 
                     className='outline-none text-gray-500 px-4 py-4  border border-gray-200 cursor-pointer
                     hover:text-black hover:bg-gray-100 duration-200 rounded-full'><AiFillHeart/></button>
-                    <button 
+                    <button onClick={()=>addToCart(data)}
                     className='outline-none text-gray-500 px-4 py-4  border border-gray-200 cursor-pointer
                     hover:text-black hover:bg-gray-100 duration-200 rounded-full'><AiOutlineShoppingCart/></button>
                   </div>
@@ -48,6 +51,7 @@ function ProductType() {
         }
       
       </div>
+
       {/* featured product */}
       <div className=' w-[400px]  border-4 border-gray-100  overflow-hidden rounded-md'>
         <div className='bg-gray-100 w-full h-[50px] px-4 py-4'>
@@ -77,7 +81,7 @@ function ProductType() {
                     <button 
                     className='outline-none text-gray-500 px-4 py-4  border border-gray-200 cursor-pointer
                     hover:text-black hover:bg-gray-100 duration-200 rounded-full'><AiFillHeart/></button>
-                    <button 
+                    <button onClick={()=>addToCart(data)}
                     className='outline-none text-gray-500 px-4 py-4  border border-gray-200 cursor-pointer
                     hover:text-black hover:bg-gray-100 duration-200  rounded-full'><AiOutlineShoppingCart/></button>
                   </div>
@@ -120,7 +124,7 @@ function ProductType() {
                     <button 
                     className='outline-none text-gray-500 px-4 py-4  border border-gray-200 cursor-pointer
                     hover:text-black hover:bg-gray-100 duration-200 rounded-full'><AiFillHeart/></button>
-                    <button 
+                    <button onClick={()=>addToCart(data)}
                     className='outline-none text-gray-500 px-4 py-4  border border-gray-200 cursor-pointer
                     hover:text-black hover:bg-gray-100 duration-200 rounded-full'><AiOutlineShoppingCart/></button>
                   </div>

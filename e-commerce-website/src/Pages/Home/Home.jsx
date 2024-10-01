@@ -12,7 +12,7 @@ import ProductType from '../../Components/ProductType/ProductType';
 
 function Home({addToCart}) {
 
-const [trendingProducts, setTrendingProducts] = useState(HomeProducts);
+
 
 
     var settings = {
@@ -51,19 +51,7 @@ const [trendingProducts, setTrendingProducts] = useState(HomeProducts);
         },
     ];
 
-    // filter products
-    const filterCategory = (category) =>{
-      const filterProduct = HomeProducts.filter((data)=>{
-        return data.type === category
-      }) 
-      setTrendingProducts(filterProduct);
-      
-    }
     
-    // all products
-    const allTrending = () =>{
-      setTrendingProducts(HomeProducts);
-    }
 
   return (
    
@@ -96,11 +84,9 @@ const [trendingProducts, setTrendingProducts] = useState(HomeProducts);
           </div>
           
           <Trending 
-          allTrending={allTrending} 
-          filterCategory={filterCategory} 
-          trendingProducts={trendingProducts} 
+          
           addToCart={addToCart} 
-          setTrendingProducts={setTrendingProducts}/>
+          />
           <Banner/>
          <ProductType/>
        </div>

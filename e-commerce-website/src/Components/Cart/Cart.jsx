@@ -1,8 +1,10 @@
 import React from 'react'
 import { AiOutlineClose } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
+import { userContext } from '../Context/useUserContext'
 
-function Cart({cart,setCart}) {
+function Cart() {
+  const {cart,setCart}=userContext()
 const Increament = (product) =>{
   const exist = cart.find((x)=>{
     return x.id === product.id

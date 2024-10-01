@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import HomeProducts from '../HomeProducts';
 import { FaStar,FaStarHalfAlt} from 'react-icons/fa';
+import { userContext } from '../Context/useUserContext';
 
-function SingleProduct({addToCart}) {
+function SingleProduct() {
+  const {addToCart} = userContext()
     const {id} = useParams();
     
 const [products,setProducts] = useState([]);

@@ -1,9 +1,14 @@
 import React from 'react'
 import { AiFillEye, AiFillHeart } from 'react-icons/ai'
+import { AiOutlineClose } from 'react-icons/ai'
+import { FaStar,FaStarHalfAlt} from 'react-icons/fa';
 import { Link } from 'react-router-dom'
+import { userContext } from '../../Components/Context/useUserContext'
 
-function Shop({shopProducts,filterCategory,allCategory,addToCart}) {
+function Shop({shopProducts,filterCategory,allCategory}) {
 
+    const {isProductShowOpen,detail,closeDetail,detailsShow,addToCart}=userContext()
+    
     
   return (
     <>
@@ -66,9 +71,58 @@ function Shop({shopProducts,filterCategory,allCategory,addToCart}) {
                                         />
                                         </Link>
                               <div className='flex absolute flex-col  -right-20  group-hover:right-4 duration-200 '>
-                                 <div className='mt-3 shadow-md shadow-gray-500  p-3 bg-white z-40  text-secondary hover:bg-secondary hover:text-white duration-200'>
+                                {/* show product */}
+                                 <div 
+                                 className='mt-3 shadow-md shadow-gray-500  p-3 bg-white z-40 
+                                  text-secondary hover:bg-secondary hover:text-white duration-200'
+                                  onClick={()=>detailsShow(data.id)}
+                                  >
                                    <AiFillEye />
                                  </div>
+                                 {
+            isProductShowOpen && 
+            <div 
+            className='lg:w-[900px] lg:h-[500px] w-[400px] h-[300px] sm:w-[600px] sm:h-[500px] bg-white fixed z-50 top-52 md:left-52 left-10 
+             shadow-gray-500 shadow-lg  rounded-md px-8 py-5 overflow-hidden '>
+              <div 
+              className='flex justify-end'
+              onClick={()=>closeDetail()}>
+                <AiOutlineClose/>
+              </div>
+      <div className='flex  gap-8  mt-5'>
+      <div className='  sm:w-[300px]  w-[200px]  border-4 border-gray-200 sm:p-3'>
+        <img src={detail.img} alt=""
+        className='sm:w-[270px] sm:h-[270px]'
+        />
+      </div>
+      <div className='lg:w-[500px] w-[200px] sm:mt-4  mx-auto sm:mx-0'>
+        <h3 className='uppercase text-sm text-gray-500 font-semibold'>#{detail.category}</h3>
+        <h2 className='sm:mt-3 mt-1 md:text-2xl text-sm uppercase font-semibold'>{detail.name}</h2>
+        <p className='text-justify sm:mt-3 text-gray-500 text-sm font-semibold sm:block hidden'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo magni provident cum nam. Dolor vel qui magni provident sed impedit tempora culpa iste corrupti quibusdam, quasi adipisci exercitationem sapiente itaque!</p>
+        <h3 className='mt-2 text-secondary text-xl'>${detail.price}</h3>
+
+        <div className='mt-3 text-primary flex gap-2 text-xl '>
+            <FaStar/>
+            <FaStar/>
+            <FaStar/>
+            <FaStar/>
+            <FaStarHalfAlt />
+            
+        </div>
+        <button 
+                    onClick={()=>addToCart(detail)}
+                    className='text-center   sm:px-10 px-5 py-2 bg-secondary text-white  cursor-pointer mt-4 font-semibold rounded
+                     hover:bg-primary hover:text-gray-900 duration-200'>
+                      Add To Cart
+                    </button>
+      </div>
+      </div>
+
+            </div>
+      }
+                    
+
+                                 {/* favourite */}
                                  <div className='mt-3 shadow-md  shadow-gray-500 p-3 bg-white z-40  text-secondary hover:bg-secondary hover:text-white duration-200'>
                                    <AiFillHeart />
                                  </div>

@@ -4,11 +4,12 @@ import Navbar from './Components/NavBar/Navbar'
 import Rout from './Router/Rout'
 import Footer from './Components/Footer/Footer'
 import HomeProducts from './Components/HomeProducts'
+import { UseContextProvider } from './Components/Context/useUserContext'
 
 function App() {
   const [shopProducts,setShopProducts] = useState(HomeProducts);
   const [search,setSearch] = useState('');
-  const [cart,setCart] = useState([]);
+  // const [cart,setCart] = useState([]);
 
 
 
@@ -34,25 +35,26 @@ function App() {
   setShopProducts(searchFilter);
  }
 
-//  add to cart
+// //  add to cart
 
-const addToCart = (product) =>{
-  const existProduct = cart.find((x)=>{
-    return x.id === product.id
-  })
-  if(existProduct){
-    alert("this product is already added to the cart")
-  }
-  else{
-    setCart([...cart,{...product, qty:1}])
-    alert("added to the cart")
-  }
+// const addToCart = (product) =>{
+//   const existProduct = cart.find((x)=>{
+//     return x.id === product.id
+//   })
+//   if(existProduct){
+//     alert("this product is already added to the cart")
+//   }
+//   else{
+//     setCart([...cart,{...product, qty:1}])
+//     alert("added to the cart")
+//   }
  
 
-}
+// }
 
   return (
-    <div>
+    <UseContextProvider>
+      <div>
       <BrowserRouter>
       <Navbar 
       search={search} 
@@ -64,9 +66,6 @@ const addToCart = (product) =>{
       shopProducts={shopProducts}
       filterCategory={filterCategory}
       allCategory={allCategory}
-      addToCart={addToCart}
-      cart={cart}
-      setCart={setCart}
       />
 
       <Footer/>
@@ -74,6 +73,7 @@ const addToCart = (product) =>{
    
 
   </div>
+    </UseContextProvider>
   )
 }
 

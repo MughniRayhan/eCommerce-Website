@@ -1,10 +1,20 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import HomeProducts from '../HomeProducts';
 import { Link } from 'react-router-dom';
 import { AiFillEye, AiFillHeart } from "react-icons/ai";
+import { AiOutlineClose } from 'react-icons/ai'
+import { FaStar,FaStarHalfAlt} from 'react-icons/fa';
 import { BiLogoFacebook, BiLogoTwitter, BiLogoInstagram, BiLogoYoutube } from "react-icons/bi";
-function Trending({allTrending,filterCategory,trendingProducts,setTrendingProducts,addToCart}) {
+import { userContext } from '../Context/useUserContext';
+
+function Trending() {
+
   const [isSubscribed, setIsSubscribed] = useState(false);
+  const [isShowMore, setIsShowMore] = useState(false)
+  const {isProductShowOpen,detail,trendingProducts,
+    allTrending,filterCategory,closeDetail,detailsShow,addToCart}=userContext()
+
+
   
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevents the form from refreshing the page
@@ -19,9 +29,12 @@ function Trending({allTrending,filterCategory,trendingProducts,setTrendingProduc
         filterCategory(category)
     }
     
-    const [isShowMore, setIsShowMore] = useState(false)
+   
   return (
+    
+
     <div className='py-4 px-8 max-w-full'>
+     
     <div className='flex w-full lg:flex-row flex-col '>
       {/*left  */}
       <div className='py-3 px-5 lg:w-[70%] w-full'>
@@ -39,7 +52,7 @@ function Trending({allTrending,filterCategory,trendingProducts,setTrendingProduc
         </div>
          {/* products */}
         <div className='max-w-full flex justify-center flex-col ' >
-          <div  className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full gap-4 '>
+          <div  className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full gap-4 '>
 
              {
               
@@ -57,16 +70,64 @@ function Trending({allTrending,filterCategory,trendingProducts,setTrendingProduc
                     className='w-[150px] h-[150px]  object-cover ml-10 sm:ml-0'
                     /></Link>
                     <div className='flex absolute flex-col  -right-20  group-hover:right-4 duration-200 '>
-                    <div className='mt-3 shadow-md shadow-gray-500  p-3 bg-white z-40  text-secondary hover:bg-secondary hover:text-white duration-200'>
+                      {/* product show */}
+                    <div 
+                    className='mt-3 shadow-md shadow-gray-500  p-3 bg-white z-40  text-secondary
+                    hover:bg-secondary hover:text-white duration-200'
+                    onClick={()=>detailsShow(data.id)}
+                    >
                     <AiFillEye />
                     </div>
+                    {
+            isProductShowOpen && 
+            <div 
+            className='lg:w-[900px] lg:h-[500px] w-[400px] h-[300px] sm:w-[600px] sm:h-[500px] bg-white fixed z-50 top-52 md:left-52 left-10 
+             shadow-gray-500 shadow-lg  rounded-md px-8 py-5 overflow-hidden '>
+              <div 
+              className='flex justify-end'
+              onClick={()=>closeDetail()}>
+                <AiOutlineClose/>
+              </div>
+      <div className='flex  gap-8  mt-5'>
+      <div className='  sm:w-[300px]  w-[200px]  border-4 border-gray-200 sm:p-3'>
+        <img src={detail.img} alt=""
+        className='sm:w-[270px] sm:h-[270px]'
+        />
+      </div>
+      <div className='lg:w-[500px] w-[200px] sm:mt-4  mx-auto sm:mx-0'>
+        <h3 className='uppercase text-sm text-gray-500 font-semibold'>#{detail.category}</h3>
+        <h2 className='sm:mt-3 mt-1 md:text-2xl text-sm uppercase font-semibold'>{detail.name}</h2>
+        <p className='text-justify sm:mt-3 text-gray-500 text-sm font-semibold sm:block hidden'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo magni provident cum nam. Dolor vel qui magni provident sed impedit tempora culpa iste corrupti quibusdam, quasi adipisci exercitationem sapiente itaque!</p>
+        <h3 className='mt-2 text-secondary text-xl'>${detail.price}</h3>
+
+        <div className='mt-3 text-primary flex gap-2 text-xl '>
+            <FaStar/>
+            <FaStar/>
+            <FaStar/>
+            <FaStar/>
+            <FaStarHalfAlt />
+            
+        </div>
+        <button 
+                    onClick={()=>addToCart(detail)}
+                    className='text-center   sm:px-10 px-5 py-2 bg-secondary text-white  cursor-pointer mt-4 font-semibold rounded
+                     hover:bg-primary hover:text-gray-900 duration-200'>
+                      Add To Cart
+                    </button>
+      </div>
+      </div>
+
+            </div>
+      }
+                    
+                    {/*favourite */}
                    <div className='mt-3 shadow-md  shadow-gray-500 p-3 bg-white z-40  text-secondary hover:bg-secondary hover:text-white duration-200'>
                    <AiFillHeart />
                    </div>
                     </div>     
                   </div>
                   {/* info */}
-                  <div className='ml-4 py-4 '>
+                  <div className='grid place-items-center py-4 '>
                     <h1 className='text-sm   uppercase tracking-wider'>{data.name}</h1>
                     <p className='text-secondary py-1 tracking-wide'>${data.price}</p>
                     <button 
@@ -83,22 +144,13 @@ function Trending({allTrending,filterCategory,trendingProducts,setTrendingProduc
              }
             
           </div>
-
-
-
-
-
-
-
-
-
-
+            {/* show more */}
           <div className='flex justify-center'
           onClick={()=>setIsShowMore(!isShowMore)}
           >
             {
               isShowMore ? 
-              <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full gap-4 '>
+              <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full gap-4 '>
               {
                 trendingProducts.slice(8,12).map((data)=>{
                   return (
@@ -112,7 +164,11 @@ function Trending({allTrending,filterCategory,trendingProducts,setTrendingProduc
                         className='w-[150px] h-[150px]  object-cover ml-10 sm:ml-0'
                         /></Link>
                         <div className='flex absolute flex-col  -right-20  group-hover:right-4 duration-200 '>
-                        <div className='mt-3 shadow-md shadow-gray-500  p-3 bg-white z-40  text-secondary hover:bg-secondary hover:text-white duration-200'>
+                        <div 
+                        className='mt-3 shadow-md shadow-gray-500  p-3 bg-white z-40 
+                         text-secondary hover:bg-secondary hover:text-white duration-200'
+                         onClick={()=>detailsShow(data.id)}
+                         >
                         <AiFillEye />
                         </div>
                        <div className='mt-3 shadow-md  shadow-gray-500 p-3 bg-white z-40  text-secondary hover:bg-secondary hover:text-white duration-200'>
