@@ -9,10 +9,11 @@ import Trending from '../../Components/TrendingProducts/Trending';
 import Banner from '../../Components/Banner/Banner';
 
 import ProductType from '../../Components/ProductType/ProductType';
+import { userContext } from '../../Components/Context/useUserContext';
 
-function Home({addToCart}) {
+function Home() {
 
-
+const {addToCart} = userContext()
 
 
     var settings = {

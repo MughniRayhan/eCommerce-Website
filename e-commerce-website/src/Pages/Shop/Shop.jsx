@@ -5,9 +5,9 @@ import { FaStar,FaStarHalfAlt} from 'react-icons/fa';
 import { Link } from 'react-router-dom'
 import { userContext } from '../../Components/Context/useUserContext'
 
-function Shop({shopProducts,filterCategory,allCategory}) {
+function Shop() {
 
-    const {isProductShowOpen,detail,closeDetail,detailsShow,addToCart}=userContext()
+    const {isProductShowOpen,detail,closeDetail,detailsShow,addToCart,shopProducts,filterCategory,allCategory}=userContext()
     
     
   return (

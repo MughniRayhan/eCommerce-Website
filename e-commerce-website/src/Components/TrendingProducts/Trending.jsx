@@ -12,7 +12,7 @@ function Trending() {
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [isShowMore, setIsShowMore] = useState(false)
   const {isProductShowOpen,detail,trendingProducts,
-    allTrending,filterCategory,closeDetail,detailsShow,addToCart}=userContext()
+    allTrending,filterProduct,closeDetail,detailsShow,addToCart}=userContext()
 
 
   
@@ -26,7 +26,7 @@ function Trending() {
     }
    
     const filterProducts = (category) =>{
-        filterCategory(category)
+      filterProduct(category)
     }
     
    

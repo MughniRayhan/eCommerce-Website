@@ -10,6 +10,7 @@ import { FiLogIn} from "react-icons/fi";
 import { CiLogout,CiUser } from "react-icons/ci";
 import { useAuth0 } from "@auth0/auth0-react";
 import {Link} from "react-router-dom";
+import { userContext } from '../Context/useUserContext';
 
 
 const Menu = [
@@ -46,7 +47,8 @@ const Menu = [
 ];
 
 
-function Navbar({search,setSearch,searchProduct}) {
+function Navbar() {
+  const {search,setSearch,searchProduct} = userContext()
     const { loginWithRedirect , logout, user, isAuthenticated } = useAuth0();
     const [isMenuOpen,setIsMenuOpen]=useState(false);
     const [isSearch, setIsSearch] = useState(false);

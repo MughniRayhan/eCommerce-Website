@@ -13,12 +13,14 @@ export const userContext = () =>{
 
 export const UseContextProvider = ({children}) => {
     const [trendingProducts, setTrendingProducts] = useState(HomeProducts);
+    const [shopProducts,setShopProducts] = useState(HomeProducts);
     const [isProductShowOpen, setIsProductShowOpen] = useState(false);
     const [detail, setDetail] = useState([])
     const [cart,setCart] = useState([]);
+    const [search,setSearch] = useState('');
 
      // filter products
-     const filterCategory = (category) =>{
+     const filterProduct = (category) =>{
         const filterProduct = HomeProducts.filter((data)=>{
           return data.type === category
         }) 
@@ -30,6 +32,31 @@ export const UseContextProvider = ({children}) => {
       const allTrending = () =>{
         setTrendingProducts(HomeProducts);
       }
+
+
+       // filter categories
+  const filterCategory = (category) =>{
+    const filteredProduct = HomeProducts.filter((product)=>{
+      return product.category === category;
+    })
+    setShopProducts(filteredProduct);
+  }
+
+  // all category
+  const allCategory = () =>{
+    setShopProducts(HomeProducts);
+  }
+
+
+// search
+ const searchProduct = () =>{
+  const searchFilter = HomeProducts.filter((x)=>{
+    return x.category === search;
+  })
+  setShopProducts(searchFilter);
+ }
+
+
 
     const detailsShow = (id) =>{
         setIsProductShowOpen(true)
@@ -63,13 +90,19 @@ const addToCart = (product) =>{
    
 
     return <useUserContext.Provider 
-    value={{isProductShowOpen, setIsProductShowOpen,
+    value={
+        {
+        isProductShowOpen, setIsProductShowOpen,
     detail, setDetail,
     closeDetail,detailsShow,
     trendingProducts, setTrendingProducts,
-    allTrending,filterCategory,
-    addToCart,cart,setCart
-    }}>
+    shopProducts,setShopProducts,
+    allTrending,filterProduct,
+    addToCart,cart,setCart,
+    search,setSearch,searchProduct,
+    allCategory,filterCategory
+    }
+  }>
       {children}
     </useUserContext.Provider>
   
