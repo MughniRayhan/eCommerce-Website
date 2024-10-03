@@ -17,9 +17,10 @@ export const UseContextProvider = ({children}) => {
     const [isProductShowOpen, setIsProductShowOpen] = useState(false);
     const [detail, setDetail] = useState([])
     const [cart,setCart] = useState([]);
+    const [favourite,setFavourite] = useState([]);
     const [search,setSearch] = useState('');
 
-     // filter products
+     // filter trending products
      const filterProduct = (category) =>{
         const filterProduct = HomeProducts.filter((data)=>{
           return data.type === category
@@ -28,7 +29,7 @@ export const UseContextProvider = ({children}) => {
         
       }
       
-      // all products
+      // all trending products
       const allTrending = () =>{
         setTrendingProducts(HomeProducts);
       }
@@ -57,7 +58,7 @@ export const UseContextProvider = ({children}) => {
  }
 
 
-
+//show details of product
     const detailsShow = (id) =>{
         setIsProductShowOpen(true)
         const show = trendingProducts.filter((x)=>{return x.id===id})
@@ -65,13 +66,12 @@ export const UseContextProvider = ({children}) => {
       }
     
       
-    
+    //close details show
       const closeDetail = () =>{
         setIsProductShowOpen(false)
       }
 
    //  add to cart
-
 const addToCart = (product) =>{
     const existProduct = cart.find((x)=>{
       return x.id === product.id
@@ -83,11 +83,24 @@ const addToCart = (product) =>{
       setCart([...cart,{...product, qty:1}])
       alert("added to the cart")
     }
-   
-  
   }
 
-   
+   //  add to favourite
+const addToFavourite = (product) =>{
+  console.log(product)
+  const existProduct = favourite.find((x)=>{
+    return x.id === product.id
+  })
+  if(existProduct){
+    alert("this product is already added to the wish list")
+  }
+  else{
+    setFavourite([...favourite,{...product}])
+    alert("added to the wish list")
+  }
+ 
+
+}
 
     return <useUserContext.Provider 
     value={
@@ -99,6 +112,7 @@ const addToCart = (product) =>{
     shopProducts,setShopProducts,
     allTrending,filterProduct,
     addToCart,cart,setCart,
+    favourite,setFavourite,addToFavourite,
     search,setSearch,searchProduct,
     allCategory,filterCategory
     }

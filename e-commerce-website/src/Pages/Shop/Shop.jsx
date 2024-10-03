@@ -7,7 +7,7 @@ import { userContext } from '../../Components/Context/useUserContext'
 
 function Shop() {
 
-    const {isProductShowOpen,detail,closeDetail,detailsShow,addToCart,shopProducts,filterCategory,allCategory}=userContext()
+    const {isProductShowOpen,detail,closeDetail,detailsShow,addToCart,shopProducts,filterCategory,allCategory,addToFavourite}=userContext()
     
     
   return (
@@ -124,7 +124,9 @@ function Shop() {
 
                                  {/* favourite */}
                                  <div className='mt-3 shadow-md  shadow-gray-500 p-3 bg-white z-40  text-secondary hover:bg-secondary hover:text-white duration-200'>
-                                   <AiFillHeart />
+                                   <AiFillHeart 
+                                   onClick={()=>addToFavourite(data)}
+                                   />
                                  </div>
                               </div>     
                            </div>

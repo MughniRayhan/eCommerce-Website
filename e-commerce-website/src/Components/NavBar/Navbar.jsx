@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { MdLocalShipping } from "react-icons/md";
-import { AiOutlineSearch } from "react-icons/ai";
-import { FaBars,FaHome,FaShoppingBag,FaShoppingCart  } from "react-icons/fa";
+import { AiOutlineSearch,AiOutlineShoppingCart } from "react-icons/ai";
+import { FaBars,FaHome,FaShoppingBag,FaShoppingCart} from "react-icons/fa";
 import { IoCartOutline } from "react-icons/io5";
 import { TbCircleLetterIFilled } from "react-icons/tb";
 import { MdContactPage } from "react-icons/md";
-import { IoMdClose } from "react-icons/io";
+import { IoMdClose,IoMdHeartEmpty } from "react-icons/io";
 import { FiLogIn} from "react-icons/fi";
 import { CiLogout,CiUser } from "react-icons/ci";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -96,8 +96,16 @@ function Navbar() {
 </Link>
             </div>
            
-         {/* login */}
-       <div >
+         {/* right */}
+       <div className='flex gap-4 justify-center items-center'>
+        <div className='text-2xl'>
+        <Link to='/cart'><AiOutlineShoppingCart /></Link>
+        </div>
+        <div className='text-2xl'>
+       <Link to='/favourite'> <IoMdHeartEmpty /></Link>
+        </div>
+        {/* login */}
+       <div>
        {
             isAuthenticated ?
              
@@ -126,6 +134,7 @@ function Navbar() {
 
         }
 
+       </div>
        </div>
         </div>
 
@@ -182,13 +191,20 @@ function Navbar() {
                 />
                
             </div>
-      {/* cart */}
+      {/* icons */}
+      <div className='flex gap-2'>
+        {/* cart */}
       <div>
       <Link to='/cart'>
       <IoCartOutline className='text-2xl cursor-pointer'/>
       </Link>
       </div>
-      
+      {/* favourite */}
+      <Link to='/favourite'> 
+      <IoMdHeartEmpty className='text-2xl cursor-pointer'/>
+      </Link>
+      </div>
+       
        </div>
 
        { isMenuOpen &&

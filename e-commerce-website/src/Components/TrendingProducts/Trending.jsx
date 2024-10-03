@@ -12,7 +12,7 @@ function Trending() {
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [isShowMore, setIsShowMore] = useState(false)
   const {isProductShowOpen,detail,trendingProducts,
-    allTrending,filterProduct,closeDetail,detailsShow,addToCart}=userContext()
+    allTrending,filterProduct,closeDetail,detailsShow,addToCart,addToFavourite}=userContext()
 
 
   
@@ -121,7 +121,10 @@ function Trending() {
       }
                     
                     {/*favourite */}
-                   <div className='mt-3 shadow-md  shadow-gray-500 p-3 bg-white z-40  text-secondary hover:bg-secondary hover:text-white duration-200'>
+                   <div 
+                   className='mt-3 shadow-md  shadow-gray-500 p-3 bg-white z-40 
+                    text-secondary hover:bg-secondary hover:text-white duration-200'
+                    onClick={()=>addToFavourite(data)}>
                    <AiFillHeart />
                    </div>
                     </div>     
@@ -171,7 +174,12 @@ function Trending() {
                          >
                         <AiFillEye />
                         </div>
-                       <div className='mt-3 shadow-md  shadow-gray-500 p-3 bg-white z-40  text-secondary hover:bg-secondary hover:text-white duration-200'>
+                        {/* favourite */}
+                       <div 
+                       className='mt-3 shadow-md  shadow-gray-500 p-3 bg-white z-40 
+                        text-secondary hover:bg-secondary hover:text-white duration-200'
+                        onClick={()=>addToFavourite(data)}
+                        >
                        <AiFillHeart />
                        </div>
                         </div>     

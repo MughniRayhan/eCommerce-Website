@@ -13,7 +13,6 @@ import { userContext } from '../../Components/Context/useUserContext';
 
 function Home() {
 
-const {addToCart} = userContext()
 
 
     var settings = {
@@ -84,10 +83,7 @@ const {addToCart} = userContext()
                  </Slider>
           </div>
           
-          <Trending 
-          
-          addToCart={addToCart} 
-          />
+          <Trending />
           <Banner/>
          <ProductType/>
        </div>

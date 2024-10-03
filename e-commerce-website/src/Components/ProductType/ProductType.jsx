@@ -3,7 +3,7 @@ import HomeProducts from '../HomeProducts';
 import { AiFillEye, AiFillHeart, AiOutlineShoppingCart } from 'react-icons/ai';
 import { userContext } from '../Context/useUserContext';
 function ProductType() {
-  const {addToCart} = userContext()
+  const {addToCart,detailsShow,addToFavourite} = userContext()
  
   return (
     <div className='w-full px-12 py-5'>
@@ -31,10 +31,10 @@ function ProductType() {
                   <h3 className='text-sm text-gray-600 font-semibold uppercase '>{data.name}</h3>
                   <p className='mt-1 text-secondary font-semibold '>${data.price}</p>
                   <div className='flex mt-1 gap-6 '>
-                    <button 
+                    <button onClick={()=>detailsShow(data.id)}
                     className='outline-none text-gray-500 px-4 py-4  border border-gray-200 cursor-pointer
                     hover:text-black hover:bg-gray-100 duration-200 rounded-full'><AiFillEye/></button>
-                    <button 
+                    <button  onClick={()=>addToFavourite(data)}
                     className='outline-none text-gray-500 px-4 py-4  border border-gray-200 cursor-pointer
                     hover:text-black hover:bg-gray-100 duration-200 rounded-full'><AiFillHeart/></button>
                     <button onClick={()=>addToCart(data)}
@@ -75,10 +75,10 @@ function ProductType() {
                   <h3 className='text-sm text-gray-600 font-semibold uppercase '>{data.name}</h3>
                   <p className='mt-1 text-secondary font-semibold '>${data.price}</p>
                   <div className='flex mt-1 gap-6 '>
-                    <button 
+                    <button onClick={()=>detailsShow(data.id)}
                     className='outline-none text-gray-500 px-4 py-4  border border-gray-200 cursor-pointer
                     hover:text-black hover:bg-gray-100 duration-200  rounded-full'><AiFillEye/></button>
-                    <button 
+                    <button  onClick={()=>addToFavourite(data)}
                     className='outline-none text-gray-500 px-4 py-4  border border-gray-200 cursor-pointer
                     hover:text-black hover:bg-gray-100 duration-200 rounded-full'><AiFillHeart/></button>
                     <button onClick={()=>addToCart(data)}
@@ -95,6 +95,7 @@ function ProductType() {
         }
       
       </div>
+
       {/* top products */}
       <div className=' w-[400px]  border-4 border-gray-100  overflow-hidden rounded-md'>
         <div className='bg-gray-100 w-full h-[50px] px-4 py-4'>
@@ -118,10 +119,10 @@ function ProductType() {
                   <h3 className='text-sm text-gray-600 font-semibold uppercase '>{data.name}</h3>
                   <p className='mt-1 text-secondary font-semibold '>${data.price}</p>
                   <div className='flex mt-1 gap-6 '>
-                    <button 
+                    <button onClick={()=>detailsShow(data.id)}
                     className='outline-none text-gray-500 px-4 py-4  border border-gray-200 cursor-pointer
                     hover:text-black hover:bg-gray-100 duration-200 rounded-full'><AiFillEye/></button>
-                    <button 
+                    <button  onClick={()=>addToFavourite(data)}
                     className='outline-none text-gray-500 px-4 py-4  border border-gray-200 cursor-pointer
                     hover:text-black hover:bg-gray-100 duration-200 rounded-full'><AiFillHeart/></button>
                     <button onClick={()=>addToCart(data)}

@@ -5,24 +5,18 @@ import Shop from '../Pages/Shop/Shop'
 import Cart from '../Components/Cart/Cart'
 import SingleProduct from '../Components/SingleProduct/SingleProduct'
 import Contact from '../Pages/Contact/Contact'
-function Rout({shopProducts,filterCategory,allCategory,addToCart,cart,setCart}) {
+import FavouriteProducts from '../Components/FavouriteProducts/FavouriteProducts'
+function Rout() {
   return (
     <div>
         <Routes>
-            <Route path='/' element={<Home addToCart={addToCart}/>}/>
-            <Route path='/cart' element={<Cart cart={cart} setCart={setCart}/>}/>
-            <Route path='/shop' element={
-              <Shop 
-              shopProducts={shopProducts} 
-              filterCategory={filterCategory} 
-              allCategory={allCategory} 
-              addToCart={addToCart}
-              />
-            }
-            />
-            <Route path='/shop/:id' element={<SingleProduct addToCart={addToCart}/>}/>
-            <Route path='/:id' element={<SingleProduct addToCart={addToCart}/>}/>
+            <Route path='/' element={<Home />}/>
+            <Route path='/cart' element={<Cart />}/>
+            <Route path='/shop' element={<Shop />}/>
+            <Route path='/shop/:id' element={<SingleProduct />}/>
+            <Route path='/:id' element={<SingleProduct />}/>
             <Route path='/contact' element={<Contact/>}/>
+            <Route path='/favourite' element={<FavouriteProducts/>}/>
         </Routes>
     </div>
   )
