@@ -15,8 +15,6 @@ function App() {
       <Rout />
       <Footer />
       </BrowserRouter>
-   
-
   </div>
     </UseContextProvider>
   )

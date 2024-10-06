@@ -5,7 +5,7 @@ import { userContext } from '../Context/useUserContext'
 
 function Cart() {
   const {cart,setCart}=userContext()
-  
+  console.log(cart)
 const Increament = (product) =>{
   const exist = cart.find((x)=>{
     return x.id === product.id

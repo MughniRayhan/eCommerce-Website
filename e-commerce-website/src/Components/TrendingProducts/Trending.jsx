@@ -200,7 +200,7 @@ function Trending() {
               }
               </div>
               :
-              <button  className='text-center   px-4 py-2 bg-secondary text-white 
+              <button  className='text-center   px-4 py-2 bg-secondary text-white rounded
               w-[150px] mx-auto mt-5 cursor-pointer hover:bg-primary hover:text-white duration-200'>Show More</button>
             }
            </div>
