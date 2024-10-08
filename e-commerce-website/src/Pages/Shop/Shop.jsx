@@ -14,7 +14,6 @@ function Shop() {
     <>
         <div className='w-full px-8 py-5 '>
             <h2 className='uppercase text-[32px] font-semibold'># Shop</h2>
-            <p className='mt-2 text-sm text-gray-600 font-semibold ml-8'>Home . Shop</p>
             <div className='max-w-full flex flex-col lg:flex-row mt-5 justify-center'>
                {/* left */}
                <div className='lg:w-1/4 w-full order-2 lg:order-1'>
@@ -45,7 +44,7 @@ function Shop() {
                {/* right */}
                <div className='lg:w-[75%] w-full order-1 lg:order-2'>
                 <div className='w-full'>
-                    <div>
+                    <div className='sm:block hidden'>
                         <img src="/images/shopBanner.png" alt=""
                         className='w-full h-[250px] object-cover'
                         />

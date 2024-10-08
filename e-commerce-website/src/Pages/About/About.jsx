@@ -48,19 +48,19 @@ function About() {
                     <div className='md:w-[25%] text-center '>
                     <CiTimer className='text-5xl text-gray-500 mx-auto'/>
                     <h2 className='font-semibold text-secondary text-xl py-2'>FREE RESOURCES</h2>
-                    <p className='text-gray-700'>Bring to the table win-win survival strategies to ensure proactive domination.</p>
+                    <p className='text-gray-500'>Bring to the table win-win survival strategies to ensure proactive domination.</p>
                     </div>
 
                     <div className='md:w-[25%] text-center '>
                     <FaNfcDirectional  className='text-5xl text-gray-500 mx-auto'/>
                     <h2 className='font-semibold text-secondary text-xl uppercase py-2'>Multi purposes</h2>
-                    <p className='text-gray-700'>Bring to the table win-win survival strategies to ensure proactive domination.</p>
+                    <p className='text-gray-500'>Bring to the table win-win survival strategies to ensure proactive domination.</p>
                     </div>
 
                     <div className='md:w-[25%] text-center '>
                     <IoBulbOutline className='text-5xl text-gray-500 mx-auto'/>
                     <h2 className='font-semibold text-secondary text-xl py-2'>FULLY RESPONSIVE</h2>
-                    <p className='text-gray-700'>Bring to the table win-win survival strategies to ensure proactive domination.</p>
+                    <p className='text-gray-500'>Bring to the table win-win survival strategies to ensure proactive domination.</p>
                     </div>
                 </div>
             </div>
