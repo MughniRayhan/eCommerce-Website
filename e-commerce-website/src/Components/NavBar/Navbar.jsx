@@ -3,7 +3,7 @@ import { MdLocalShipping } from "react-icons/md";
 import { AiOutlineSearch,AiOutlineShoppingCart } from "react-icons/ai";
 import { FaBars,FaHome,FaShoppingBag,FaShoppingCart} from "react-icons/fa";
 import { IoCartOutline } from "react-icons/io5";
-import { TbCircleLetterIFilled } from "react-icons/tb";
+import { IoInformationCircle } from "react-icons/io5";
 import { MdContactPage } from "react-icons/md";
 import { IoMdClose,IoMdHeartEmpty } from "react-icons/io";
 import { FiLogIn} from "react-icons/fi";
@@ -34,7 +34,7 @@ const Menu = [
   },
   {
     id:4,
-    icon:<TbCircleLetterIFilled />,
+    icon:<IoInformationCircle />,
     name:"About",
     link:"/about",
   },

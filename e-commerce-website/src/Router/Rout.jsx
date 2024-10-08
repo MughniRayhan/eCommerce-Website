@@ -6,17 +6,19 @@ import Cart from '../Components/Cart/Cart'
 import SingleProduct from '../Components/SingleProduct/SingleProduct'
 import Contact from '../Pages/Contact/Contact'
 import FavouriteProducts from '../Components/FavouriteProducts/FavouriteProducts'
+import About from '../Pages/About/About'
 function Rout() {
   return (
     <div>
         <Routes>
             <Route path='/' element={<Home />}/>
-            <Route path='/cart' element={<Cart />}/>
             <Route path='/shop' element={<Shop />}/>
+            <Route path='/contact' element={<Contact/>}/>
+            <Route path='/about' element={<About/>}/>
+            <Route path='/cart' element={<Cart />}/>
+            <Route path='/favourite' element={<FavouriteProducts/>}/>
             <Route path='/shop/:id' element={<SingleProduct />}/>
             <Route path='/:id' element={<SingleProduct />}/>
-            <Route path='/contact' element={<Contact/>}/>
-            <Route path='/favourite' element={<FavouriteProducts/>}/>
         </Routes>
     </div>
   )
