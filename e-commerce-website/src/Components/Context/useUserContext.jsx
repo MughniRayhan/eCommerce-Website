@@ -14,8 +14,6 @@ export const userContext = () =>{
 export const UseContextProvider = ({children}) => {
     const [trendingProducts, setTrendingProducts] = useState(HomeProducts);
     const [shopProducts,setShopProducts] = useState(HomeProducts);
-    const [isProductShowOpen, setIsProductShowOpen] = useState(false);
-    const [detail, setDetail] = useState([])
     const [cart,setCart] = useState([]);
     const [favourite,setFavourite] = useState([]);
     const [search,setSearch] = useState('');
@@ -52,25 +50,15 @@ export const UseContextProvider = ({children}) => {
 // search
  const searchProduct = () =>{
   const searchFilter = HomeProducts.filter((x)=>{
-    return x.category === search;
+    return x.category === search.toLowerCase();
   })
   setShopProducts(searchFilter);
  }
 
 
-//show details of product
-    const detailsShow = (id) =>{
-        setIsProductShowOpen(true)
-        const show = trendingProducts.filter((x)=>{return x.id===id})
-        setDetail(show[0])
-      }
-    
-      
-    //close details show
-      const closeDetail = () =>{
-        setIsProductShowOpen(false)
-      }
 
+      
+   
    //  add to cart
 const addToCart = (product) =>{
     const existProduct = cart.find((x)=>{
@@ -105,9 +93,6 @@ const addToFavourite = (product) =>{
     return <useUserContext.Provider 
     value={
         {
-        isProductShowOpen, setIsProductShowOpen,
-    detail, setDetail,
-    closeDetail,detailsShow,
     trendingProducts, setTrendingProducts,
     shopProducts,setShopProducts,
     allTrending,filterProduct,

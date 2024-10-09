@@ -1,7 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import HomeProducts from '../HomeProducts';
 import { AiFillEye, AiFillHeart, AiOutlineShoppingCart } from 'react-icons/ai';
 import { userContext } from '../Context/useUserContext';
+
 function ProductType() {
   const {addToCart,detailsShow,addToFavourite} = userContext()
  
@@ -21,7 +23,7 @@ function ProductType() {
         ).map((data)=>{
           return(
             <div key={data.id}>
-              <div className='w-full  px-4 py-4  border border-gray-100 flex gap-8'>
+              <div className='w-full  sm:px-4 px-2 py-4  border border-gray-100 flex gap-8'>
                 <div >
                   <img src={data.img} alt=""
                   className='w-[100px] h-[100px] object-cover'
@@ -30,10 +32,10 @@ function ProductType() {
                 <div >
                   <h3 className='text-sm text-gray-600 font-semibold uppercase '>{data.name}</h3>
                   <p className='mt-1 text-secondary font-semibold '>${data.price}</p>
-                  <div className='flex mt-1 gap-6 '>
-                    <button onClick={()=>detailsShow(data.id)}
+                  <div className='flex mt-1 sm:gap-6 gap-3'>
+                   <Link to={`${data.id}`}> <button 
                     className='outline-none text-gray-500 px-4 py-4  border border-gray-200 cursor-pointer
-                    hover:text-black hover:bg-gray-100 duration-200 rounded-full'><AiFillEye/></button>
+                    hover:text-black hover:bg-gray-100 duration-200 rounded-full'><AiFillEye/></button></Link>
                     <button  onClick={()=>addToFavourite(data)}
                     className='outline-none text-gray-500 px-4 py-4  border border-gray-200 cursor-pointer
                     hover:text-black hover:bg-gray-100 duration-200 rounded-full'><AiFillHeart/></button>
@@ -65,7 +67,7 @@ function ProductType() {
         ).map((data)=>{
           return(
             <div key={data.id}>
-              <div className='w-full  px-4 py-4  border border-gray-100 flex gap-8'>
+              <div className='w-full  sm:px-4 px-2 py-4  border border-gray-100 flex gap-8'>
                 <div >
                   <img src={data.img} alt=""
                   className='w-[100px] h-[100px] object-cover'
@@ -74,10 +76,10 @@ function ProductType() {
                 <div >
                   <h3 className='text-sm text-gray-600 font-semibold uppercase '>{data.name}</h3>
                   <p className='mt-1 text-secondary font-semibold '>${data.price}</p>
-                  <div className='flex mt-1 gap-6 '>
-                    <button onClick={()=>detailsShow(data.id)}
+                  <div className='flex mt-1 sm:gap-6 gap-3 '>
+                  <Link to={`${data.id}`}> <button 
                     className='outline-none text-gray-500 px-4 py-4  border border-gray-200 cursor-pointer
-                    hover:text-black hover:bg-gray-100 duration-200  rounded-full'><AiFillEye/></button>
+                    hover:text-black hover:bg-gray-100 duration-200 rounded-full'><AiFillEye/></button></Link>
                     <button  onClick={()=>addToFavourite(data)}
                     className='outline-none text-gray-500 px-4 py-4  border border-gray-200 cursor-pointer
                     hover:text-black hover:bg-gray-100 duration-200 rounded-full'><AiFillHeart/></button>
@@ -109,7 +111,7 @@ function ProductType() {
         ).map((data)=>{
           return(
             <div key={data.id}>
-              <div className='w-full  px-4 py-4  border border-gray-100 flex gap-8'>
+              <div className='w-full  sm:px-4 px-2 py-4  border border-gray-100 flex gap-8'>
                 <div >
                   <img src={data.img} alt=""
                   className='w-[100px] h-[100px] object-cover'
@@ -118,10 +120,10 @@ function ProductType() {
                 <div >
                   <h3 className='text-sm text-gray-600 font-semibold uppercase '>{data.name}</h3>
                   <p className='mt-1 text-secondary font-semibold '>${data.price}</p>
-                  <div className='flex mt-1 gap-6 '>
-                    <button onClick={()=>detailsShow(data.id)}
+                  <div className='flex mt-1 sm:gap-6 gap-3 '>
+                  <Link to={`${data.id}`}> <button 
                     className='outline-none text-gray-500 px-4 py-4  border border-gray-200 cursor-pointer
-                    hover:text-black hover:bg-gray-100 duration-200 rounded-full'><AiFillEye/></button>
+                    hover:text-black hover:bg-gray-100 duration-200 rounded-full'><AiFillEye/></button></Link>
                     <button  onClick={()=>addToFavourite(data)}
                     className='outline-none text-gray-500 px-4 py-4  border border-gray-200 cursor-pointer
                     hover:text-black hover:bg-gray-100 duration-200 rounded-full'><AiFillHeart/></button>

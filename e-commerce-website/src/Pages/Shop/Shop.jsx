@@ -7,7 +7,7 @@ import { userContext } from '../../Components/Context/useUserContext'
 
 function Shop() {
 
-    const {isProductShowOpen,detail,closeDetail,detailsShow,addToCart,shopProducts,filterCategory,allCategory,addToFavourite}=userContext()
+    const {detailsShow,addToCart,shopProducts,filterCategory,allCategory,addToFavourite}=userContext()
     
     
   return (
@@ -71,6 +71,7 @@ function Shop() {
                                         </Link>
                               <div className='flex absolute flex-col  -right-20  group-hover:right-4 duration-200 '>
                                 {/* show product */}
+                                 <Link to={`${data.id}`}>
                                  <div 
                                  className='mt-3 shadow-md shadow-gray-500  p-3 bg-white z-40 
                                   text-secondary hover:bg-secondary hover:text-white duration-200'
@@ -78,47 +79,8 @@ function Shop() {
                                   >
                                    <AiFillEye />
                                  </div>
-                                 {
-            isProductShowOpen && 
-            <div 
-            className='lg:w-[900px] lg:h-[400px]  w-full h-full  sm:w-[600px] overflow-hidden  bg-white fixed z-50 sm:top-[35%] top-0 md:left-[20%] left-0 
-             shadow-gray-500 shadow-lg  rounded-md px-8  py-8 scroll-m-8 pb-10 '>
-              <div 
-              className='flex justify-end'
-              onClick={()=>closeDetail()}>
-                <AiOutlineClose/>
-              </div>
-      <div className='flex flex-col sm:flex-row justify-center sm:gap-5  sm:mt-5  pb-8'>
-      <div className='  sm:w-[300px]  sm:h-[300px]  sm:border-4 border-gray-200 sm:p-3  mx-auto '>
-        <img src={detail.img} alt=""
-        className='sm:w-[270px] sm:h-[270px] w-[150px] h-[150px]  object-cover'
-        />
-      </div>
-      <div className='lg:w-[400px] sm:w-[200px] sm:mt-4  mx-auto sm:mx-0 pb-8 -mt-4 grid place-items-center py-4 '>
-        <h3 className='uppercase text-sm text-gray-500 font-semibold'>#{detail.category}</h3>
-        <h2 className='sm:mt-3 mt-1 md:text-2xl text-sm uppercase font-semibold'>{detail.name}</h2>
-        <p className='text-justify mt-3 text-gray-500 text-sm font-semibold '>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo magni provident cum nam. Dolor vel qui magni provident sed impedit tempora culpa iste corrupti quibusdam, quasi adipisci exercitationem sapiente itaque!</p>
-        <h3 className='mt-2 text-secondary sm:text-xl'>${detail.price}</h3>
-
-        <div className='mt-3 text-primary flex gap-2 sm:text-xl '>
-            <FaStar/>
-            <FaStar/>
-            <FaStar/>
-            <FaStar/>
-            <FaStarHalfAlt />
-            
-        </div>
-        <button 
-                    onClick={()=>addToCart(detail)}
-                    className='text-center   sm:px-10 px-5 py-2 bg-secondary text-white  cursor-pointer mt-4 font-semibold rounded
-                     hover:bg-primary hover:text-gray-900 duration-200 '>
-                      Add To Cart
-                    </button>
-      </div>
-      </div>
-
-            </div>
-      }
+                                 </Link>
+                                
 
                                  {/* favourite */}
                                  <div className='mt-3 shadow-md  shadow-gray-500 p-3 bg-white z-40  text-secondary hover:bg-secondary hover:text-white duration-200'>
