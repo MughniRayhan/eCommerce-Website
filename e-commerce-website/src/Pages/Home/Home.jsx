@@ -60,7 +60,7 @@ function Home() {
                   <Slider {...settings}>
                  {SlideList.map((data)=>(
                     <div key={data.id}>
-                        <div className=' grid grid-cols-1 sm:grid-cols-2 pt-12 px-8 place-items-center'>
+                        <div className=' grid grid-cols-1 sm:grid-cols-2 pt-12 px-8 place-items-center w-full'>
                      <div className=' flex flex-col justify-center gap-4 ml-8 sm:pt-8   text-center sm:text-left order-2 sm:order-1   '>
                   <h1 className='text-2xl sm:text-6xl lg:text-7xl font-bold'>{data.title}</h1>
                   <p className='text-sm text-secondary py-4'>{data.description}</p>

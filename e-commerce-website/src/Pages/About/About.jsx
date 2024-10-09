@@ -15,7 +15,7 @@ function About() {
                    className='md:w-[400px] md:h-[400px]'
                    />
                 </div>
-                <div className='w-[50%]'>
+                <div className='sm:w-[50%] w-full'>
                       <h1 className='text-4xl uppercase font-semibold text-gray-700'>We Have Everything You Need ?</h1>
                       <p className='text-gray-500 mt-3'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit saepe eius, at sed alias quibusdam? Fugiat, ea deleniti nisi porro itaque maxime vero quam officiis ex possimus et placeat esse.</p>
                       <div className='py-5'>
@@ -42,6 +42,7 @@ function About() {
                 </div>
             </div>
 
+            {/* services */}
             <div className='mt-10 py-5 px-8'>
                 <h1 className='text-center font-semibold text-3xl'>Our Services</h1>
                 <div className='flex flex-col md:flex-row justify-center mt-5 py-5 gap-8'>

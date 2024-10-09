@@ -57,11 +57,11 @@ const removeProduct = (product) =>{
           cart.map((data)=>{
             return (
               <div key={data.id}>
-                <div className='flex flex-col lg:flex-row w-full  border-2 border-gray-200 lg:h-[250px] h-[400px] mt-4 px-8'>
-                <div className='w-full flex justify-end lg:hidden'>
+                <div className='flex flex-col lg:flex-row w-full  border-2 border-gray-200 lg:h-[250px] h-[400px] mt-4 sm:px-8 px-2'>
+                <div className='w-full flex justify-end lg:hidden items-end'>
                 <Link 
-                className=' font-semibold text-xl cursor-pointer text-white bg-secondary py-
-                h-[40px] w-[40px] mt-2   grid place-items-center ml-4'
+                className=' font-semibold  cursor-pointer text-white bg-secondary py-
+                h-[30px] w-[30px] mt-2   grid place-items-center ml-4 '
                 onClick={()=>removeProduct(data)}
                 >
                       <AiOutlineClose />
@@ -87,7 +87,7 @@ const removeProduct = (product) =>{
                       className='px-5 outline-none bg-primary font-semibold h-[40px] text-[16px] cursor-pointer'
                       onClick={()=>Increament(data)}>+</button>
                       <input type="number" value={data.qty}
-                      className='lg:w-[100px] w-[200px] border-2 text-secondary border-primary h-[40px] px-4'
+                      className='lg:w-[100px] w-[100px] border-2 text-secondary border-primary h-[40px] px-4'
                       />
                       <button 
                       className='px-5 outline-none bg-primary font-semibold h-[40px] text-[16px] cursor-pointer'

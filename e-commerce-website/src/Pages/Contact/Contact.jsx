@@ -2,21 +2,21 @@ import React from 'react'
 import { BiLogoFacebook, BiLogoTwitter, BiLogoInstagram, BiLogoYoutube } from "react-icons/bi";
 function Contact() {
   return (
-    <div className='px-10 py-8 w-full'>
-        <h1 className='text-3xl uppercase font-semibold text-gray-500 text-center '>LEAVE US A MESSAGE</h1>
-        <div className='px-5 py-5 max-w-full flex justify-center'>
-            <div className='w-[500px] bg-gray-100 px-12 py-6 shadow-md shadow-gray-300 border-t-2 border-primary rounded-md'>
+    <div className='sm:px-10 py-8 w-full'>
+        <h1 className='sm:text-3xl text-2xl uppercase font-semibold text-gray-500 text-center '>LEAVE US A MESSAGE</h1>
+        <div className='px-5  py-5 max-w-full flex justify-center items-center'>
+            <div className='sm:w-[500px] w-full bg-gray-100 sm:px-12 px-5 py-6 shadow-md shadow-gray-300 border-t-2 border-primary rounded-md'>
                 
                     <h1 className='text-2xl text-secondary font-bold uppercase'>#Contact Us</h1>
                     <form className='  '>
 
-                        <div className='flex  gap-10 mt-6'>
+                        <div className='flex  gap-10  mt-6'>
                             <div>
-                                <h4 className='font-semibold'>Name :</h4>
+                                <h4 className='font-semibold '>Name:</h4>
                             </div>
                             <div>
                                 <input type="text" placeholder='Name'  required
-                                className='px-5 py-2 w-[300px] outline-none border-b-2 border-gray-500 bg-gray-100'
+                                className='px-5 py-2 sm:w-[300px] w-[200px] outline-none border-b-2 border-gray-500 bg-gray-100'
                                 />
                             </div>
                         </div>
@@ -27,7 +27,7 @@ function Contact() {
                             </div>
                             <div>
                                 <input type="email" placeholder='Email' required
-                                className='px-5 py-2 w-[300px] outline-none border-b-2 border-gray-500 bg-gray-100'
+                                className='px-5 py-2 sm:w-[300px] w-[200px] outline-none border-b-2 border-gray-500 bg-gray-100'
                                 />
                             </div>
                         </div>
@@ -38,7 +38,7 @@ function Contact() {
                             </div>
                             <div>
                                 <input type="text" placeholder='Subject' required
-                                className='px-5 py-2 w-[300px] outline-none border-b-2 border-gray-500 bg-gray-100'
+                                className='px-5 py-2 sm:w-[300px] w-[200px] outline-none border-b-2 border-gray-500 bg-gray-100'
                                 />
                             </div>
                         </div>
@@ -49,7 +49,7 @@ function Contact() {
                             </div>
                             <div>
                                 <textarea name="" id="" placeholder='Message'
-                                className='px-5 py-2 w-[300px] outline-none border-b-2 border-gray-500 bg-gray-100 resize-none'
+                                className='px-5 py-2 sm:w-[300px] w-[200px] outline-none border-b-2 border-gray-500 bg-gray-100 resize-none'
                                 ></textarea>
                             </div>
                         </div>
@@ -64,9 +64,10 @@ function Contact() {
         </div>
       
 
-      <div className='flex flex-col lg:flex-row mt-8 py-5 px-5 gap-20 justify-center'>
+      <div className='flex flex-col lg:flex-row mt-8 py-5 px-5  gap-20 justify-center'>
         <div className='lg:border-r-2 border-gray-300 pr-10 '>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57903.06236002257!2d91.81983601868355!3d24.899980493077884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375054d3d270329f%3A0xf58ef93431f67382!2sSylhet!5e0!3m2!1sen!2sbd!4v1728329809812!5m2!1sen!2sbd" className='md:w-[500px] md:h-[400px] w-[400px] h-[300px]'  loading="lazy" ></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57903.06236002257!2d91.81983601868355!3d24.899980493077884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375054d3d270329f%3A0xf58ef93431f67382!2sSylhet!5e0!3m2!1sen!2sbd!4v1728329809812!5m2!1sen!2sbd" 
+            className='md:w-[500px] md:h-[400px] w-[350px] h-[300px]'  loading="lazy" ></iframe>
         </div>
         <div>
            <h1 className='text-4xl uppercase text-gray-600 font-semibold '>Get in touch</h1>

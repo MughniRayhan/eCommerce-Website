@@ -6,7 +6,7 @@ function ProductType() {
   const {addToCart,detailsShow,addToFavourite} = userContext()
  
   return (
-    <div className='w-full px-12 py-5'>
+    <div className='w-full sm:px-12  py-5'>
     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full gap-3'>
       {/* new products */}
       <div className='w-[400px]  border-4 border-gray-100  overflow-hidden rounded-md '>

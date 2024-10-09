@@ -155,7 +155,7 @@ function Navbar() {
         />
         {
           isSearch && 
-          <div className='mt-5 p-3  bg-white border border-gray-200 rounded-md fixed z-50 right-40 shadow-lg'>
+          <div className='mt-5 p-3  bg-white border border-gray-200 rounded-md fixed z-50 right-50 top-16 shadow-lg'>
             <div className='w-full flex justify-end '>
             <IoMdClose 
             onClick={()=>setIsSearch(false)} 

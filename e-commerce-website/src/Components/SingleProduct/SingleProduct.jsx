@@ -22,12 +22,12 @@ useEffect(()=>{
   
   return (
     <div  className='w-full flex flex-col sm:flex-row  gap-20 py-14  justify-center bg-white sticky z-0 pb-20'>
-      <div className='p-4 border-2 border-gray-200 w-[400px] h-[400px] mx-auto sm:mx-0'>
+      <div className='p-4 border-2 border-gray-200 sm:w-[400px] sm:h-[400px] mx-auto sm:mx-0'>
         <img src={products.img} alt=""
         className='w-[300px] h-[300px] mx-auto'
         />
       </div>
-      <div className='lg:w-[600px] w-[400px] mt-4 mx-auto sm:mx-0 '>
+      <div className='lg:w-[600px] w-[200px] mt-4 mx-auto sm:mx-0 '>
         <h3 className='uppercase text-sm text-gray-500 font-semibold'>#{products.category}</h3>
         <h2 className='mt-3 md:text-2xl uppercase font-semibold'>{products.name}</h2>
         <p className='text-justify py-4 text-gray-500 '>
@@ -47,7 +47,7 @@ useEffect(()=>{
         
         <button 
                     onClick={()=>addToCart(products)}
-                    className='text-center   px-20 py-3 bg-secondary text-white  cursor-pointer mt-4 font-semibold rounded-md
+                    className='text-center   sm:px-20 px-5 py-3 bg-secondary text-white  cursor-pointer mt-4 font-semibold rounded-md
                      hover:bg-primary hover:text-gray-900 duration-200 flex justify-between items-center gap-2'>
                       <span>Add To Cart</span>
                       <span className='mt-1'> <FaArrowAltCircleRight /></span>
