@@ -58,7 +58,7 @@ function Navbar() {
   return (
     <div className='w-full sticky top-0  bg-white z-50'>
         {/* top_header */}
-        <div className='max-w-full flex gap-2 px-2.5 py-2.5 bg-slate-100 sm:block hidden '>
+        <div className='max-w-full sm:flex gap-2 px-2.5 py-2.5 bg-slate-100  hidden '>
           <div className='mt-1 text-xl ml-5 text-gray-500'>
           < MdLocalShipping/>
           </div>
