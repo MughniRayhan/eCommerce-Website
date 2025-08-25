@@ -1,8 +1,22 @@
-# React + Vite
+📦 GadgetGalaxy – E-commerce Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+GadgetGalaxy is a modern e-commerce platform for electronics, built with React.js, Tailwind CSS, and Auth0 authentication.
+Users can browse products, add/remove items from the cart, and save their favorite products for later.
 
-Currently, two official plugins are available:
+🌐 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🔗 GadgetGalaxy Live
+[https://zesty-cat-608773.netlify.app/]
+
+✨ Features
+🛒 Add to Cart – Easily add products to the shopping cart.
+❌ Delete from Cart – Remove unwanted items with one click.
+❤️ Save Favorite – Save products for later viewing.
+🔐 Secure Authentication – Login and signup powered by Auth0.
+📱 Responsive Design – Fully optimized for all screen sizes.
+
+🛠️ Tech Stack
+Frontend: React.js, Tailwind CSS
+Authentication: Auth0
+State Management: React Hooks / Context
+Hosting: Netlify
